@@ -8,7 +8,8 @@
 //console.error('¡Hubo un error crítico en el código!')  //se utiliza para imprimir mensajes de error en la consola.
 
 //=================================== PARTE I - NOMBRE ===================================
-debugger
+
+//debugger
 
 alert('¡Hola! Mi nombre es Alertito. Estás a punto de realizar un Test de varias etapas. Te explicaré cada una a su debido tiempo. ¡Comencemos!')
 
