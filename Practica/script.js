@@ -1,6 +1,6 @@
 //========================================= CLASE 5 - OBJETO =========================================
 
-alert('¡Hola! Gracias por participar en este desafío. Necesito que abras las consola y estés atento a la misma. ¡Suerte!')
+//alert('¡Hola! Gracias por participar en este desafío. Necesito que abras las consola y estés atento a la misma. ¡Suerte!')
 
 console.log('==========================================================')
 
@@ -374,3 +374,119 @@ console.log(fechaRandom.toTimeString())
 console.log('==========================================================')
 
 //.trim(), es un método que sirve para eliminar espacios en blanco de una cadena de texto
+
+//========================================= CLASE 9 - DOM =========================================
+
+//DOM: Modelo de Objeto de Documento. Define la estructura lógica de los documentos y el modo en que se accede y manipula. El DOM organiza un documento como una estructura de nodos en un árbol, donde cada parte del documento es representada por un nodo.
+
+/*
+Tipos de nodos:
+
+Element Nodes   (Nodos de Elemento):    Elementos HTML, como <p>, <div>, <span>, etc.
+Attribute Nodes (Nodos de Atributo):    Atributos de un elemento HTML. Por ejemplo, el atributo href de un enlace (<a>).
+Text Nodes      (Nodos de Texto):       Contenido de texto dentro de un elemento. Por ejemplo, el texto dentro de un párrafo (<p>).
+Comment Nodes   (Nodos de Comentario):  Comentarios en el código HTML.
+Document Nodes  (Nodos de Documento):   Representan el documento en sí.
+*/
+
+//Ejemplo de como un archivo HTML es dividido y clasificado en los distintos nodos del árbol.
+
+/*
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="miDiv">
+    <p>Hola, <span>mundo</span>!</p>
+  </div>
+</body>
+</html>
+*/
+
+/*
+Document Node (#document)
+  Element Node (html)
+    Element Node (head)
+      ...
+    Element Node (body)
+      Element Node (div)
+        Element Node (p)
+          Text Node (Hola, )
+          Element Node (span)
+            Text Node (mundo)
+          Text Node (!)
+*/
+
+//document
+
+//getElementById() - TRAER ELEMENTO ID
+//getElementsByClassName() - TRAER ELEMENTO CLASE
+//getElementsByTagName() - TRAER ELEMENTO ETIQUETA
+
+//innerHTML - La propiedad se utiliza para acceder o modificar el contenido HTML de un elemento.
+
+let miDiv = document.getElementById("miDiv");                                                                           // Obtiene el ID del HTML y lo guarda en una variable
+miDiv.innerHTML += "<h2>Titulo H2 - JavaScript</h2> <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>";  // Modifica y agrega nuevo contenido (lo escrito entre comillas) al contenido ya existente (+=).
+
+//innerText - Se utiliza para acceder o modificar el contenido de texto puro de un elemento, sin interpretar o renderizar HTML.
+
+let miTexto = document.getElementById("miTexto");                           // Obtiene el ID del HTML y lo guarda en una variable
+miTexto.innerText = "Hola, este es un nuevo texto generado en JavaScript."; // Modifica el texto de la variable
+
+//createElement() - Es un método que se utiliza para crear un nuevo elemento HTML. Toma como argumento el nombre del elemento.
+//textContent     - Es una propiedad que se utiliza para obtener o establecer el contenido de texto de un elemento.
+//querySelector   - Es un método que se utiliza para seleccionar el primer elemento que coincida con un selector CSS especificado.
+//insertBefore    - Es un método del DOM que se utiliza para insertar un nodo antes de otro nodo hijo dentro de un nodo padre. 
+
+let nuevoTexto = document.createElement("p");                                   // Crea un nuevo elemento <p>
+nuevoTexto.textContent = "Este es mi nuevo párrafo generado antes del botón.";  // Agrega texto al nuevo elemento
+let etiquetaMain = document.querySelector("main");                              // Encuentra el elemento main
+let boton = document.getElementById("miBoton");                                 // Encuentra el botón
+etiquetaMain.insertBefore(nuevoTexto, boton);                                   // Inserta el nuevo elemento <p> antes del botón
+
+//append()      - Este método se utiliza para agregar uno o varios nodos o fragmentos de nodos al final de un elemento.
+//appendChild() - Se utiliza para agregar un nodo hijo al final de un elemento específico.
+
+let otroTexto = document.getElementById("miDiv");                                 // Encuentra por ID y lo guarda en variable.
+otroTexto.append("Nuevo texto generado al final.", document.createElement("p"));  // Crea elemento <p> e inserta un texto al final.
+
+let nodoPadre = document.getElementById("miTexto");                               // Encuentra un ID y lo guarda en una variable
+let nodoHijo = document.createElement("p");                                       // Crea un elemento <p> en una variable
+nodoHijo.textContent = "Nuevo texto generado después del otro texto generado.";   // Agrega texto al elemento <p>
+nodoPadre.appendChild(nodoHijo);                                                  // Agrega un nodo hijo al nodo padre.
+
+/* No estoy seguro de que estos ejemplos estén correctamente implementados. */
+
+//console.dir() - Se utiliza para imprimir en la consola una representación detallada de un objeto JavaScript. Proporciona una vista más estructurada y jerárquica del objeto en la consola del navegador.
+
+// --EJEMPLO--
+
+const productos = [{ id: 1,  nombre: "Arroz", precio: 125},
+                  {  id: 2,  nombre: "Fideo", precio: 70},
+                  {  id: 3,  nombre: "Pan"  , precio: 50},
+                  {  id: 4,  nombre: "Flan" , precio: 100}]
+
+
+for (const producto of productos) {
+    let contenedor = document.createElement("div")
+    //Definimos el innerHTML del elemento con una plantilla de texto
+    contenedor.innerHTML = `<h3> ID:        ${producto.id}      </h3>
+                            <p>  Producto:  ${producto.nombre}  </p>
+                            <b>  $          ${producto.precio}  </b>`
+    document.body.appendChild(contenedor)
+}
+
+console.dir(productos)
+console.log(productos)
+
+//value
+
+//document.getElementById("edad").value = 36
+
+/*
+En resumen, la línea de código completa está asignando el valor 36 a un elemento de formulario con el ID "edad". Si "edad" es un campo de entrada, por ejemplo, el valor en ese campo se establecerá en 36. Esto puede ser útil para predefinir o actualizar el valor de un campo de entrada en una página web mediante JavaScript.
+*/
