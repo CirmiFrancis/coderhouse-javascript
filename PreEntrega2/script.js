@@ -4,7 +4,7 @@ let sesionIniciada = 0
 let nombreUsuario = 'admin'
 let contraseniaUsuario = '1234'
 
-function compararDatos(nombre,contrasenia){
+function compararDatosUsuario(nombre,contrasenia){
   let nombreIngresado = prompt('Ingresa un nombre: ');
   let contraseniaIngresada = prompt('Ingresa una contraseña: ');
 
@@ -23,7 +23,7 @@ alert('Antes que nada, debes de iniciar sesión como administrador. Estos son lo
 alert('Usuario: admin; Contraseña: 1234');
 
 while (sesionIniciada !== 1){
-  compararDatos(nombreUsuario,contraseniaUsuario);
+  compararDatosUsuario(nombreUsuario,contraseniaUsuario);
 }
 
 alert('¡Ahora sí! Ya puedes abrir la consola, continuaremos por ahí.');
@@ -115,13 +115,13 @@ function buscarJuego(nombre) {
 // ============ FILTRAR JUEGOS POR: PRECIO, PLATAFORMA, GENERO Y AÑO ============
 
 // ---- Precio ----
-function filtrarPorPrecio(precio1, precio2){
+function filtrarPorPrecioDesdeHasta(precio1, precio2){
   return catalogo.filter((juego) => precio1 <= juego.precio && juego.precio <= precio2);
 }
 
-//console.table(filtrarPorPrecio(0, 50000))
-//console.table(filtrarPorPrecio(50000, 100000))
-//console.table(filtrarPorPrecio(12000, 12000))
+//console.table(filtrarPorPrecioDesdeHasta(0, 50000))
+//console.table(filtrarPorPrecioDesdeHasta(50000, 100000))
+//console.table(filtrarPorPrecioDesdeHasta(12000, 12000))
 
 // ---- Plataforma ----
 function filtrarPorPlataforma(plataforma){
@@ -151,13 +151,13 @@ const filtrarAction = filtrarPorGenero('Action');
 //console.table(filtrarPorGenero(' Rpg'))
 
 // ---- Año ----
-function filtrarPorAnio(anio1, anio2){
+function filtrarPorAnioDesdeHasta(anio1, anio2){
   return catalogo.filter((juego) => anio1 <= juego.anio && juego.anio <= anio2);
 }
 
-//console.table(filtrarPorAnio(2011, 2020))
-//console.table(filtrarPorAnio(2021, 2030))
-//console.table(filtrarPorAnio(2023, 2023))
+//console.table(filtrarPorAnioDesdeHasta(2011, 2020))
+//console.table(filtrarPorAnioDesdeHasta(2021, 2030))
+//console.table(filtrarPorAnioDesdeHasta(2023, 2023))
 
 // ============ ORDENAR POR PRECIO Y AÑO, DE FORMA ASCENDENTE/DESCENDENTE ============
 
@@ -189,7 +189,7 @@ function ordenarDescendenteAnio(){
 
 // ---- Juego más caro ----
 
-function masCaro(){
+function juegoMasCaro(){
   let juegoMasCaro = catalogo[0];
   for (let i = 1; i < catalogo.length; i++) {
     if (catalogo[i].precio > juegoMasCaro.precio) {
@@ -201,7 +201,7 @@ function masCaro(){
 
 // ---- Juego más barato ----
 
-function masBarato(){
+function juegoMasBarato(){
   let juegoMasBarato = catalogo[0];
   for (let i = 1; i < catalogo.length; i++) {
     if (catalogo[i].precio < juegoMasBarato.precio) {
@@ -214,7 +214,7 @@ function masBarato(){
 // ============ MOSTRAR TODAS LAS FUNCIONES PERSONALIZADAS ============
 
 function todasLasFunciones(){
-  return 'Juego(a,b,c,d,e,f), agregarJuego(a), eliminarJuego(a), cuantosJuegosHay(), buscarJuego(a), filtrarPorPrecio(a,b), filtrarPorPlataforma(a), filtrarPorGenero(a), filtrarPorAnio(a,b), ordenarAscendentePrecio(), ordenarDescendentePrecio(), ordenarAscendenteAnio(), ordenarDescendenteAnio(), masCaro(), masBarato()';
+  return 'Juego(a,b,c,d,e,f), agregarJuego(a), eliminarJuego(a), cuantosJuegosHay(), buscarJuego(a), filtrarPorPrecioDesdeHasta(a,b), filtrarPorPlataforma(a), filtrarPorGenero(a), filtrarPorAnioDesdeHasta(a,b), ordenarAscendentePrecio(), ordenarDescendentePrecio(), ordenarAscendenteAnio(), ordenarDescendenteAnio(), juegoMasCaro(), juegoMasBarato()';
 }
 
 //=====================================================================
