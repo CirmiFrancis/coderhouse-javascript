@@ -105,7 +105,7 @@ for (let i=0; i<3; i++) {
 
 console.log('==========================================================')
 
-//length (calcula tamanio)
+//length (calcula tamaño)
 
 function calcularTamanio(lista){
   return lista.length
@@ -492,222 +492,299 @@ En resumen, la línea de código completa está asignando el valor 36 a un eleme
 */
 
 //========================================= CLASE 10 - EVENTOS =========================================
+/*
+// EVENTO
 
-//QUE ES UN EVENTO?
+En JavaScript, un evento es una acción que ocurre en el documento web (página). Como hacer clic en un botón, mover el mouse, cargar una página, etc. Cuando se produce un evento, el navegador web envía una señal al código JS para ejecutar una función específica en respuesta al evento.
 
-/* 
-Los eventos en JavaScript son acciones que ocurren en un documento web(osea, nuestra pagina), 
-como hacer clic en un botón, mover el mouse, pasar el mouse por algun lado, cargar una página, etc. 
-Cuando se produce un evento, el navegador web envía una señal al código JavaScript 
-para que se ejecute una función específica en respuesta al evento.
+Por ejemplo:
+Si queremos que una función se ejecute cuando un usuario hace clic en un botón especifico, asignamos la función a la propiedad onClick del botón. Cuando el usuario hace clic en el botón, la página manda una señal al código JavaScript y se ejecuta la función que armamos.
 
-Por ejemplo, si queremos que una función se ejecute cuando un usuario hace clic en un botón especifico, 
-asignamos la función a la propiedad onClick del botón. Cuando el usuario hace clic en el botón, 
-la pagina manda una señal al código JavaScript y se ejecuta la funcion que armamos.
+Sintaxis:
 
-La sintaxis para asignar una función a un evento en JavaScript es la siguiente:
+  elemento.evento = function() {
+    // Código a ejecutar cuando se produce el evento
+  }
 
-elemento.evento = function() {
-// Código a ejecutar cuando se produce el evento
-}
-
-En este caso "elemento" es el elemento HTML al que queremos asignar el evento, 
-y "evento" es el nombre del evento que queremos que se ejecute, como "onClick", "onLoad", "onMouseOver", etc.
+'elemento': es el elemento HTML al que queremos asignar el evento.
+'evento': es el nombre del evento que queremos que se ejecute, como "onClick", "onLoad", "onMouseOver", etc.
 
 ============================================================
 
-//METODO VIEJO  (Se usa en sistemas anteriores al 2015)
+// MÉTODO VIEJO  (Se usa en sistemas anteriores al 2015)
 
-Seleccionamos el botón y el título utilizando el método getElementById().  crear el h1 en html sino no funciona
+Seleccionamos el botón y el título utilizando el método getElementById().  Es necesario crear el h1 en HTML, sino no funciona.
 
-let boton = document.getElementById("boton");
-let titulo = document.getElementById("titulo");
+  let boton = document.getElementById("boton");
+  let titulo = document.getElementById("titulo");
 
 Asignamos la función al evento onClick del botón
-boton.onclick = function() {
-	//Cambiamos el contenido del título
-	titulo.innerHTML = "Nuevo texto";
-}
+
+  boton.onclick = function() {
+    //Cambiamos el contenido del título
+    titulo.innerHTML = "Nuevo texto";
+  }
 
 ============================================================
 
-//ADDEVENLISTENER()  nace en em6 2015 y es que usamos ahora
+// MÉTODO NUEVO (Nace en em6 2015 y es que usamos ahora)
 
-addEventListener() es un método que nos permite agregar una función a un evento específico en un elemento HTML. 
-Cuando se produce el evento, (cuando se hace click por ejemplo) la función se ejecuta automáticamente.
+addEventListener() es un método que nos permite agregar una función a un evento específico en un elemento HTML. Cuando se produce el evento, la función se ejecuta automáticamente.
 
-La sintaxis para addEventListener() seria asi:
+Sintaxis:
 
-elemento.addEventListener(evento, funcion);
+  elemento.addEventListener(evento, funcion);
 
-elemento: es el elemento HTML al que se le desea agregar el evento.
-evento: es el nombre del evento que se desea asignar, como "click", "load", "submit", "keyup", etc.
-funcion: es la función que se va a ejecutar cuando se produzca el evento.
+'elemento': es el elemento HTML al que se le desea agregar el evento.
+'evento': es el nombre del evento que se desea asignar, como "click", "load", "submit", "keyup", etc.
+'funcion': es la función que se va a ejecutar cuando se produzca el evento.
 
-Por ejemplo, si queremos agregar un evento de clic a un botón con ID "mi-boton", se puede usar addEventListener() 
+Por ejemplo:
+Si queremos agregar un evento de clic a un botón con ID "mi-boton", se puede usar addEventListener() 
 de la siguiente manera:
 
-let boton = document.getElementById("mi-boton");   //crear un boton en html
+  let boton = document.getElementById("mi-boton");   //hay que crear un boton en html con el id 'mi-boton'
 
-boton.addEventListener("click", function() {
-  console.log("¡Hiciste clic en el botón!");
-  alert("evento detectado, mira la consola")
-});
-
-En este ejemplo, se selecciona el botón con ID "mi-boton" usando getElementById(). y se agrega un evento de clic 
-usando addEventListener(), y se le pasa una función anónima como segundo argumento que se ejecuta cuando 
-se hace clic en el botón. En este caso, la función solamente imprime un mensaje en la consola.
-
-addEventListener() tiene varias ventajas sobre otras formas de asignar eventos en JavaScript, 
-como elemento.onclick, que permite agregar varias funciones a un mismo evento.
+  boton.addEventListener("click", function() {
+    console.log("¡Hiciste clic en el botón!");
+    alert("evento detectado, mira la consola")
+  });
 
 ============================================================
 
-//esta seria la 3er forma que se muestra, pero NO SE USA.
+// MÉTODO OBSOLETO (No se recomienda escribir JS dentro de HTML)
 
-<div class="card">
-	<h2>Evento Click</h2>
-	<p>Presiona el botón para ver la alerta:</p>
-	<button onclick="alert('¡Haz hecho clic en el botón!')">Haz clic aquí</button>
-</div>
-
-//si escriben js dentro de html se muere un gatito
+  <div class="card">
+    <h2>Evento Click</h2>
+    <p>Presiona el botón para ver la alerta:</p>
+    <button onclick="alert('¡Haz hecho clic en el botón!')">Haz clic aquí</button>
+  </div>
 
 ============================================================
 
-//---- EVENTOS DE MOUSE ----
+// -------- EVENTOS DE MOUSE --------
 
-CLICK: Este evento se activa cuando el usuario hace clic en un elemento con el mouse.
+click, mouseover, mouseout, mousemove
 
-Seleccionar un elemento HTML por su ID
-let elemento = document.getElementById("miElemento");
 
-Agregar un evento de clic al elemento utilizando addEventListener
-elemento.addEventListener("click", function() {
-  console.log("el pelado es el mejor profe!");
-});
+CLICK:     este evento se activa cuando el usuario HACE CLIC en un elemento con el mouse.
+MOUSEOVER: este evento se activa cuando el mouse ENTRA en un elemento.
+MOUSEOUT:  este evento se activa cuando el mouse SALE de un elemento.
+MOUSEMOVE: este evento se activa cuando el mouse SE MUEVE dentro de un elemento.
 
-MOUSEOVER: Este evento se activa cuando el mouse entra en un elemento.
+También existen otros eventos como MOUSEDOWN y MOUSEUP, entre otros.
 
-Seleccionar un elemento HTML por su ID
-let elemento = document.getElementById("miElemento");
+Ejemplo de MOUSEMOVE:
+Usamos el parámetro 'event' para obtener las coordenadas del mouse en la pantalla y las muestra en la consola.
 
-Agregar un evento de mouseover al elemento utilizando addEventListener
-elemento.addEventListener("mouseover", function() {
-  console.log("el mouse entro al elemento");
-})
+  let elemento = document.getElementById("miElemento");
 
-MOUSEOUT: Este evento se activa cuando el mouse sale de un elemento.
+  elemento.addEventListener("mousemove", function(event) {
+    console.log("El mouse estaen la posición x: " + event.clientX + " y en la posición y: " + event.clientY);
+  });
 
-Seleccionar un elemento HTML por su ID
-let elemento = document.getElementById("miElemento");
-
-Agregar un evento de mouseout al elemento utilizando addEventListener
-elemento.addEventListener("mouseout", function() {
-  console.log("El mouse salio del elemento");
-});
-
-MOUSEMOVE: Este evento se activa cuando el mouse se mueve dentro de un elemento, como el ejemplo del jueguito.
-
-Seleccionar un elemento HTML por su ID
-let elemento = document.getElementById("miElemento");
-
-Agregar un evento de mousemove al elemento utilizando addEventListener
-elemento.addEventListener("mousemove", function(event) {
-  console.log("El mouse estaen la posición x: " + event.clientX + " y en la posición y: " + event.clientY);
-});
-
-En este último ejemplo, usamos el objeto event para obtener las coordenadas del mouse en la pantalla 
-y las muestra en la consola.
-
-Estos son solo algunos de los eventos que puede tener un mouse en JavaScript. 
-También existen otros eventos como mousedown y mouseup que usamos para el ejemplo del jueguito. (no lo hice para que lo armen ustedes y practiquen)
-
-//---- EVENTOS DE TECLADO ----
+// -------- EVENTOS DE TECLADO --------
                               
-//INPUT
-                              
-input: Este evento se activa cuando se cambia el valor de un elemento de entrada
-                                                                                                     
-let inputField = document.getElementById('miCampoDeTexto');
-inputField.addEventListener('input', function(event) {
-console.log('Valor del campo de texto cambiado:', event.target.value);
-});
+input, change, submit
 
-input: es útil cuando necesitas realizar alguna acción mientras el usuario está ingresando información 
-en un campo de texto o área de texto. 
-Por ejemplo, podemos usarlo para mostrar una vista previa en tiempo real de lo que el usuario está escribiendo, 
-para validar el contenido de un campo de texto a medida que el usuario lo escribe.
 
-//CHANGE
+INPUT: este evento se activa cuando se cambia el valor de un elemento de entrada.
+Es útil cuando necesitas realizar alguna acción mientras el usuario está ingresando información en un campo de texto o área de texto. 
+Podemos usarlo, por ejemplo, para mostrar una vista previa en tiempo real de lo que el usuario está escribiendo, para validar el contenido de un campo de texto a medida que el usuario lo escribe.
 
-change: Este evento también se activa cuando se cambia el valor de un elemento de entrada, 
-pero a diferencia del evento input, el evento change se dispara después de que el usuario termino
-de interactuar con el texto
+Ejemplo de INPUT:
+                                                                                              
+  let inputField = document.getElementById('miCampoDeTexto');
 
-let inputField = document.getElementById('miCampoDeTexto');
-inputField.addEventListener('change', function(event) {
-  console.log('Valor del campo de texto cambiado:', event.target.value);
-});
+  inputField.addEventListener('input', function(event) {
+    console.log('Valor del campo de texto cambiado:', event.target.value);
+  });
 
-change: Este evento es útil cuando necesitas realizar alguna acción después de que el usuario haya terminado 
-de ingresar información en un campo de texto o área de texto. 
-Por ejemplo, para validar el contenido de un campo de texto después de que el usuario 
-haya terminado de escribir o para actualizar un campo de texto con el contenido ingresado 
-antes de enviar el formulario.
+CHANGE: este evento también se activa cuando se cambia el valor de un elemento de entrada, pero a diferencia del evento input, el evento change se dispara después de que el usuario terminó de interactuar con el texto.
+Es útil, por ejemplo, para validar el contenido de un campo de texto después de que el usuario haya terminado de escribir o para actualizar un campo de texto con el contenido ingresado antes de enviar el formulario.
 
-//SUBMIT
+SUBMIT: este evento se activa cuando se envía un formulario, ya sea haciendo clic en un botón de enviar o presionando la tecla 'Enter' en un campo de texto.   
 
-submit: Este evento se activa cuando se envía un formulario, 
-ya sea haciendo clic en un botón de enviar o presionando la tecla Enter en un campo de texto.   
+Ejemplo de SUBMIT:
+El método preventDefault() sirve para detener el envío del formulario y evitar que la página se recargue. 
 
-creen el formulario en el html sino no funciona
+  let form = document.getElementById('miFormulario'); //es necesario crear el formulario en HTML para que funcione
 
-let form = document.getElementById('miFormulario');
-
-form.addEventListener('submit', function(event) {
-  event.preventDefault(); // Detener el envío del formulario
-  console.log('Formulario enviado');
-});
-
-aca, usamos el método preventDefault() para detener el envío del formulario 
-y evitar que la página se recargue. 
-Pueden agregar su propia lógica para manejar la información del formulario antes de enviarla al servidor o a donde quieran.
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Detener el envío del formulario
+    console.log('Formulario enviado');
+  });
 
 */
 
-/* ---- EJERCICIO ----
+/* 
 
--------- A RESOLVER --------
+-------- EJERCICIO --------
 
-let form = document.getElementById('miformulario')
+---- A RESOLVER ----
 
-form.addEventListener('submit', function(event){
-    event.preventDefault() //detiene el envio del formulario
+  let form = document.getElementById('miformulario')
 
-    if(event.target.value === null){  //event.target.value hace referencia al valor de todo el formulario, lo cual no tiene sentido
-        confirm('queres enviar el formulario vacio?')
-    }
-    else{
-        alert('hola pepe')
-    }
-})
+  form.addEventListener('submit', function(event){
+      event.preventDefault() //detiene el envio del formulario
 
--------- RESUELTO --------
+      if(event.target.value === null){  //event.target.value hace referencia al valor de todo el formulario, lo cual no tiene sentido
+          confirm('queres enviar el formulario vacio?')
+      }
+      else{
+          alert('hola pepe')
+      }
+  })
 
-let form = document.getElementById('miformulario')
+---- RESUELTO ----
 
-form.addEventListener('submit', function(event){
-    event.preventDefault() //detiene el envio del formulario
+  let form = document.getElementById('miformulario')
 
-    let inputValue = document.getElementById('micampodetexto').value;
+  form.addEventListener('submit', function(event){
+      event.preventDefault() //detiene el envio del formulario
 
-    if(inputValue === ''){  //inputValue hace referencia al valor de 'micampodetexto', lo cual tiene sentido
-        confirm('queres enviar el formulario vacio?')
-    }
-    else{
-        alert('hola pepe')
-    }
-})
+      let inputValue = document.getElementById('micampodetexto').value;
+
+      if(inputValue === ''){  //inputValue hace referencia al valor de 'micampodetexto', lo cual tiene sentido
+          confirm('queres enviar el formulario vacio?')
+      }
+      else{
+          alert('hola pepe')
+      }
+  })
+
+// En este caso, hay 2 diferencias a tener en cuenta:
+-La primera es que se declara una variable llamada 'inputValue', que recibe el valor del ID 'micampodetexto'
+-La segunda es la comparación en el IF, donde se compara el 'inputValue' con '' (cadena vacía)
+
+Además, acá se está obteniendo explícitamente el valor del campo de texto con la declaración del 'inputValue', en cambio, con el 'event.target' no queda especificado, al referirse al formulario en sí y no a un campo en específico.
+
+*/
+
+//========================================= CLASE 11 - STORAGE & JSON =========================================
+
+/*
+
+//================== STORAGE ==================
+
+Local Storage:   los datos quedan guardados de forma indefinida (o hasta que se borren los datos de navegación).
+Session Storage: los datos quedan guardados temporalmente, hasta que el usuario cierra la ventana.
+
+Estos almacenamientos almacenan: Clave, Valor || Key, Value.
+Siendo la Clave/Key la forma de identificarlo, y el Valor/Value el contenido real que se quiere almacenar.
+
+---- setItem() ----
+Sirve para almacenar información.
+
+  localStorage.setItem(clave, valor)
+  localStorage.setItem('unNumero', 20);
+
+  sessionStorage.setItem(clave, valor)
+  sessionStorage.setItem('unNumero', 20);
+
+---- getItem() ----
+Sirve para acceder a la información almacenada.
+
+  let numero = localStorage.getItem('unNumero');
+  console.log(numero);
+
+  let numero = sessionStorage.getItem('unNumero');
+  console.log(numero);
+
+  let email = sessionStorage.getItem('email');
+  console.log(typeof email);   //string
+
+---- removeItem() ----
+Elimina una información especificada.
+
+  localStorage.removeItem('bienvenida'); 
+  sessionStorage.removeItem('esValido'); 
+
+---- clear() ----
+Elimina toda la información.
+
+  localStorage.clear()
+  sessionStorage.clear()
+
+---- CICLO FOR ----
+Para recorrer el Storage, NO PODEMOS USAR 'FOR...OF' ni 'FOR...IN', sino de la siguiente forma:
+
+  for (let i = 0; i < localStorage.length; i++) {
+    let clave = localStorage.key(i);
+    console.log("Clave: "+ clave);
+    console.log("Valor: "+ localStorage.getItem(clave));
+  }
+
+*/
+
+/*
+
+//================== JSON ==================
+
+Si queremos almacenar la información de un objeto en un storage, hay que tener en cuenta que tanto la clave como el valor se almacenan en STRINGS, por lo que hay que transforma el objeto a JSON.
+
+JavaScript Object Notation (JSON) es un formato basado en texto plano, para representar datos estructurados con la sintaxis de objetos de JavaScript. Es comúnmente utilizado para enviar y almacenar datos en aplicaciones web.
+JSON es un string con un formato específico.
+
+---- stringify ----
+Acepta un objeto como parámetro y devuelve la forma de texto JSON equivalente.
+
+  const producto1 = { id: 2, producto: "Arroz" }; 
+  const enJSON = JSON.stringify(producto1);
+
+  console.log(enJSON); // {"id":2,"producto":"Arroz"} 
+  console.log(typeof producto1); // object 
+  console.log(typeof enJSON); // string
+
+  localStorage.setItem("producto1", enJSON); // Se guarda {"id":2,"producto":"Arroz"}
+
+---- parse ----
+Recibe un texto JSON como parámetro y devuelve el objeto JavaScript correspondiente.
+
+  const enJSON = '{"id":2,"producto":"Arroz"} '; 
+  const producto1 = JSON.parse(enJSON);
+
+  console.log(typeof enJSON); // string 
+  console.log(typeof producto1); // object 
+  console.log(producto1.producto); // Arroz
+
+  const producto2 = JSON.parse(localStorage.getItem("producto1"));
+
+  console.log(producto2.id); // 2
+
+
+-------- EJERCICIO (incompleto) --------
+
+const inputNombre = document. querySelector ("#nombre")
+const inputEdad = document. querySelector ("#edad")
+const inputEmail = document.querySelector ("#email")
+const botonEnviar = document .querySelector ("#guardar")
+const botonTraer = document.querySelector ("#traer")
+
+botonEnviar.addEventListener('click', guardarFormulario)
+
+function guardarFormulario(){
+  const datosDelFormulario = {
+    nombre: inputNombre.value, 
+    edad: inputEdad.value, 
+    email: inputEmail.value
+  }
+  let resultado = JSON.stringify(datosDelFormulario)
+  localStorage.setItem("datosForm", resultado) 
+  console.log(resultado)
+  alert("ya se guardaron los datos en el storage")
+}
+
+function cargarFormulario() {
+
+  const formulario = document.getElementById('miformulario');
+  const datosJSON = localStorage.getItem('datosForm');
+
+  if(datosJSON) {
+    const datosDelFormulario = JSON.parse(datosJSON)
+
+    formulario.nombre.value = datosDelFormulario.nombre
+  }
+}
 
 */
