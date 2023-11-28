@@ -6,7 +6,7 @@ Proyecto Final realizado para el curso de JavaScript de Coderhouse.
 
 -Posibles Nombres: GGames & GiGames (basdos en: Gamer's Games, GG Games, entre otros).
 -Temática: Tienda Online de Videojuegos.
--Aspecto Visual: inspirado en Netflix, G2A & GOG. 
+-Aspecto Visual: inspirado en Netflix, Crunchyroll, G2A & GOG. 
 -Extra: en alguna parte de la página, quizás en la sección ‘Juegos’, voy a agregar un juego 'gratis' jugable y creado por mí.
 -Secciones/Funcionalidades: 
     - Inicio:                Carrusel con novedades. Algunos juegos y opciones de ‘Ir a Tienda’. Recomendaciones de la semana. 
