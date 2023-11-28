@@ -788,3 +788,186 @@ function cargarFormulario() {
 }
 
 */
+
+//========================================= CLASE 12 - OPERADORES AVANZADOS I =========================================
+
+/*
+
+//------------ Operador ++ ------------
+Se puede usar '++' para simplificar el código.
+
+  let num = 10
+
+  num = num + 1
+  num += 1
+  num++
+
+//------------ Operador Ternario ------------
+Se puede usar 'condicion ? caso1 : caso2' para acortar el IF-ELSE.
+
+  let temperatura = 31
+  if (temperatura > 30) {
+    alert("Día caluroso!")
+  } 
+  else {
+    alert("Día agradable")
+  }
+
+  temperatura > 30 ? alert("Día caluroso!") : alert("Día agradable")
+
+//------------ Operador Lógico AND ------------
+Operador AND. Trata de ejecutar (o retornar) algo sólo si la condición es verdadera. 'condicion && accion'
+
+  const carrito = []
+  if (carrito.length === 0) {
+    console.log("El carrito está vacío!")
+  }
+  carrito.length === 0 && console.log("El carrito está vacío!")
+
+  const usuario = {
+    nombre: "John Doe",
+    edad: 14
+  }
+  const registroIngreso = usuario.edad >= 18 && new Date()
+  console.log(registroIngreso)      // FALSE
+
+//------------ Operador OR & Nullish Coalescing ------------
+Operador OR. Consta de dos operandos y no de una condición explícita. Si no es 'Falsy' (si es distinto de: 0, null, undefined, NaN, false, o string vacío), el operador OR ( || ) retorna operando1. De lo contrario, retorna operando2. 'operando1 || operando2'
+
+  console.log( 0 || "Falsy")              // Falsy
+  console.log( 40 || "Falsy")             // 40
+  console.log( null || "Falsy")           // Falsy
+  console.log( undefined || "Falsy")      // Falsy
+  console.log( "Hola Mundo" || "Falsy")   // Hola Mundo
+  console.log( "" || "Falsy")             // Falsy
+  console.log( NaN || "Falsy")            // Falsy
+  console.log( true || "Falsy")           // true
+  console.log( false || "Falsy")          // Falsy
+
+  const usuario1 = { 
+    nombre: "John Doe", 
+    edad: 14
+  }
+  const usuario2 = null
+  console.log( usuario1 || "El usuario no existe" )     // { nombre: 'John Doe', edad: 14 }
+  console.log( usuario2 || "El usuario no existe" )     // El usuario no existe
+
+Operador Nullish Coalescing. A diferencia del operador OR, admite más valores como ‘verdaderos’.
+
+  console.log( 0 ?? "Nullish")              // 0
+  console.log( 40 ?? "Nullish")             // 40
+  console.log( null ?? "Nullish")           // Nullish
+  console.log( undefined ?? "Nullish")      // Nullish
+  console.log( "Hola Mundo" ?? "Nullish")   // Hola Mundo
+  console.log( "" ?? "Nullish")             // ""
+  console.log( NaN ?? "Nullish")            // NaN
+  console.log( true ?? "Nullish")           // true
+  console.log( false ?? "Nullish")          // false
+
+//------------ Acceso Condicional a un objeto/propiedad ------------
+Si intentamos acceder a un objeto que no existe naturalmente obtendremos un error. Pero, si usamos el operador ? sobre la referencia de un objeto para condicionar su acceso podemos tener un mejor control de errores en la ejecución.
+
+  const usuario = null
+  console.log( usuario.nombre || "El usuario no existe" )      // Error: "No se pueden leer propiedades de NULL"
+  console.log( usuario?.nombre || "El usuario no existe")      // "El usuario no existe"
+
+  const usuario = { 
+    nombre: "John Doe", 
+    edad: 22,
+    cursos: {
+      javascript: "aprobado" 
+    }
+  }
+  console.log( usuario?.cursos?.javascript || "La propiedad no existe")       // "aprobado"
+  console.log( usuario?.trabajos?.coderhouse || "La propiedad no existe")     // "La propiedad no existe"
+
+//------------ Desestructuración ------------
+Es una técnica que nos permite declarar variables donde guardar propiedades de un objeto de forma rápida y directa. 'let { prop } = objeto'
+
+En vez de utilizar:
+  const usuario = { 
+    nombre: "John Doe", 
+    edad: 32
+  }
+  let nombre = usuario.nombre 
+  let edad = usuario.edad
+
+Podemos usar:
+  const { nombre, edad } = usuario
+  console.log(nombre)             // "John Doe" 
+  console.log(edad)               // 32 
+
+  const { telefono } = usuario    // undefined
+
+Si queremos acceder a propiedas más internas... 'let { prop: {propInt} } = objeto'
+  const usuario = { 
+    nombre: "John Doe", 
+    edad: 32,
+    telefono: {
+      cel: 113334444, 
+      casa: null, 
+      trabajo: 113325555
+    } 
+  }
+  const { nombre, telefono: {trabajo} } = usuario
+  console.log(nombre)       // "John Doe" 
+  console.log(trabajo)      // 113325555
+
+//------------ Desestructuración: Alias ------------
+Podemos declarar la variable con un nombre alternativo tras haber desestructurado el objeto.
+
+  const item = { 
+    item_id: 432,
+    product_name: "Some product",
+    price_per_unit: 5600 
+  }
+
+  const {
+    item_id: id,
+    product_name: nombre,
+    price_per_unit: precio 
+  } = item
+
+  console.log(id)         // 432 
+  console.log(nombre)     // "Some product"
+  console.log(precio)     // 5600
+
+//------------ Desestructuración en parámetros ------------
+Si en una función recibimos objetos por parámetros, también es posible desestructurarlos directamente en el llamado, definiendo esto al declarar la función.
+
+  const producto = { 
+    id: 10,
+    nombre: "Curso Javascript",
+    precio: 12500 
+  }
+  const desestructurar = ( item ) => {
+    const {id, nombre} = item 
+    console.log(id, nombre)
+  }
+  desestructurar(producto)    // 10 Curso Javascript
+
+  const desestructurar = ( {id, nombre} ) => { 
+    console.log(id, nombre)
+  }
+  desestructurar(producto)    // 10 Curso Javascript
+
+  window.addEventListener('click', ( {x, y} ) => {
+    console.log(x, y)
+  })
+
+//------------ Desestructuración de arrays ------------
+Es posible desestructurar arrays de forma similar, usando corchetes [] en vez de llaves. La diferencia con la desestructuración de objetos es que la de arrays es posicional.
+
+  const nombres = ["Juan", "Julieta", "Carlos", "Mariela"]
+  const [a, b] = nombres
+  console.log(a)              // "Juan" 
+  console.log(b)              // "Julieta"
+
+Si queremos acceder a otras posiciones, o mejor dicho omitir las primeras, podemos hacerlo dejando espacios vacíos con comas:
+
+  const nombres = ["Juan", "Julieta", "Carlos", "Mariela"]
+  const [,, a, b] = nombres
+  console.log(a)              // "Carlos" 
+  console.log(b)              // "Mariela"
+
+*/

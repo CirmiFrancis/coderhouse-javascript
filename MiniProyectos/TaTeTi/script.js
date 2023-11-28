@@ -1,3 +1,5 @@
+// Ta-Te-Ti que se juega en consola. No está terminado, faltó aumentar el nivel de la IA (ya que coloca símbolos aleatoriamente) y optimizar el código.
+
 // Variables globales
 let simboloJugador;
 let simboloIA;
