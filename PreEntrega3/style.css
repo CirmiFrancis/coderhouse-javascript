@@ -1,27 +1,29 @@
 /* ======================================================================================================================================= */
 
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&family=Rubik+Pixels&display=swap');
+
 /* GENERAL */
 
 * {
+    font-family: sans-serif;
     margin: 0;
     transition: all 0.25s;
 }
 
 body {
-    background-color: lightslategray;
+    min-height: 100vh;
+    background: url('./bg-image.jpg') center/cover no-repeat;
 }
 
 a {
-    color: white;
+    font-family: 'Rubik Pixels';
     text-decoration: none;
-    cursor: pointer;
+    color: white;
 }
 
-h1:hover {
+h1:hover, p:hover {
     transform: scale(1.02);
-    cursor: pointer;
 }
-
 
 /* ======================================================================================================================================= */
 
@@ -35,11 +37,12 @@ h1:hover {
 }
 
 .section1 h1 {
-    padding-block: 15px;
+    padding-block: 15px 10px;
     background-color: black;
 }
 
 .section1 p {
+    font-family: 'Pixelify Sans'; 
     padding-bottom: 15px;
     background-color: black;
 }
@@ -56,9 +59,8 @@ h1:hover {
 }
 
 .section2 button {
-    border-radius: 20px;
-    padding-inline: 20px;
-    padding-block: 10px;
+    padding: 5px 10px 5px 10px;
+    border-radius: 10px;
 }
 
 .section2 button:hover {
@@ -67,11 +69,15 @@ h1:hover {
     background-color: black;
 }
 
-/* MOSTRAR JUEGOS */
+/* MOSTRAR JUEGOS / BUSCAR JUEGO / AGREGAR JUEGO / ELIMINAR JUEGO */
 
-.section2 .contenedorMostrarJuegos {
+.section2 .contenedorMostrarJuegos,
+.section2 .contenedorBuscarJuego,
+.section2 .contenedorJuegoBuscado,
+.section2 .contenedorAgregarJuego,
+.section2 .contenedorEliminarJuego {
     margin-top: 2rem;
-    padding: 5vh 10vw 5vh 10vw;
+    padding: 5vh 5vw 5vh 5vw;
     border: 2px solid black;
     border-radius: 20px;
     background-color: white;
@@ -81,34 +87,14 @@ h1:hover {
     display: flex;
     margin-block: 5px;
     padding: 20px;
+    gap: 20px;
     align-items: center;
     border: 1px solid black;
     border-radius: 10px;
-    gap: 20px;
-}
-
-/* BUSCAR JUEGO */
-
-.section2 .contenedorBuscarJuego, .section2 .contenedorJuegoBuscado, .section2 .contenedorAgregarJuego, .section2 .contenedorEliminarJuego {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
-    padding: 5vh 10vw 5vh 10vw;
-    border: 2px solid black;
-    border-radius: 20px;
-    background-color: white;
 }
 
 .section2 input {
     width: 20vw;
 }
-
-.section2 button {
-    border-radius: 5px;
-    padding-inline: 10px;
-    padding-block: 5px;
-}
-
 
 /* ======================================================================================================================================= */

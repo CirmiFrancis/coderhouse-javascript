@@ -1,14 +1,14 @@
 //===========================================================================================================================================
 
-// ---- Función Constructora ----
+// ------------ FUNCIÓN CONSTRUCTORA ------------
 function Juego(nombre, precio, platf, anio) {
-  this.nombre = nombre;
-  this.precio = precio;
+  this.nombre     = nombre;
+  this.precio     = precio;
   this.plataforma = platf;
-  this.anio = anio;
+  this.anio       = anio;
 }
 
-// ---- Objetos, Atributos & Array ----
+// ------------ OBJETOS, ATRIBUTOS & ARRAY ------------
 const minecraft = new Juego( 'MINECRAFT', 12000, 'PC',  2011);
 const fifa      = new Juego( 'FIFA',      24000, 'PC',  2023);
 const pokemon   = new Juego( 'POKEMON',   64000, 'NS',  2022);
@@ -19,24 +19,22 @@ let catalogo = [minecraft, fifa, pokemon, spiderman, gta];
 
 //===========================================================================================================================================
 
+// Al entrar a la página, si hay una KEY en el localStorage llamado 'catalogoJuegos', lo obtenemos, lo pasamos de JSON a Objeto y lo asignamos al 'catalogo'. Esto está hecho para que, al agregar/eliminar un juego, ese cambio quede guardado en el localStorage. Por lo tanto, al salir y entrar de la página, el cambio sigue estando.
 if (localStorage.getItem('catalogoJuegos')) {
-  catalogo = JSON.parse(localStorage.getItem('catalogoJuegos'))
-}
-else {
-  catalogo = catalogo;
+  catalogo = JSON.parse(localStorage.getItem('catalogoJuegos'));
 }
 
-// ============ MOSTRAR JUEGOS (Muestra el catálogo completo de videojuegos.) ============
+// ------------ MOSTRAR JUEGOS (Muestra el catálogo completo de videojuegos.) ------------
 
-let botonMostrarJuegos = document.getElementById('mostrarJuegos');  // boton 'Mostrar Juegos'
-botonMostrarJuegos.addEventListener('click', mostrarJuegos);
+// Al hacer clic en el botón con el ID 'mostrarJuegos', dispara una función.
+document.getElementById('mostrarJuegos').addEventListener('click', mostrarJuegos);  
 
-let mostrandoJuegos = false;  // variable auxiliar para saber si se está mostrando el catálogo o no
+let mostrandoJuegos = false;  // Variable auxiliar que sirve como interruptor, para saber si el 'catalogo' se está mostrando o no.
 
-function mostrarJuegos(evento) {
+function mostrarJuegos(evento) {  //
   evento.preventDefault();
 
-  if (buscandoJuego){
+  if (buscandoJuego){ // Si está abierto ;
     buscandoJuego = false;
     const containerBuscarJuego = document.querySelector('.contenedorBuscarJuego')
     containerBuscarJuego.remove();
@@ -59,7 +57,7 @@ function mostrarJuegos(evento) {
   }
 
   if (!mostrandoJuegos){
-    mostrandoJuegos = true; // si no se está mostrando, mostrarlo
+    mostrandoJuegos = !mostrandoJuegos; // si no se está mostrando, mostrarlo
 
     const container = document.createElement("div")
     container.classList.add('contenedorMostrarJuegos')
@@ -70,10 +68,10 @@ function mostrarJuegos(evento) {
       const card = document.createElement("div")
       card.classList.add('cardJuego')
   
-      const nombre = document.createElement("h2")
+      const nombre = document.createElement("h3")
       nombre.textContent = `${juego.nombre.toUpperCase()}`
       card.appendChild(nombre)
-  
+
       const precio = document.createElement("p")
       precio.textContent = `$${juego.precio}`
       card.appendChild(precio)
@@ -93,14 +91,14 @@ function mostrarJuegos(evento) {
     })
   }
   else {
-    mostrandoJuegos = false;  // si se está mostrando, dejar de mostrarlo
+    mostrandoJuegos = !mostrandoJuegos;  // si se está mostrando, dejar de mostrarlo
 
     const container = document.querySelector('.contenedorMostrarJuegos')
     container.remove();
   }
 }
 
-// ============ BUSCAR JUEGO (Muestra el videojuego que coincida con el nombre de algún videojuego del catálogo.) ============
+// ------------ BUSCAR JUEGO (Muestra el videojuego que coincida con el nombre de algún videojuego del catálogo.) ------------
 
 let botonBuscarJuego = document.getElementById('buscarJuego');
 botonBuscarJuego.addEventListener('click', buscarJuego);
@@ -181,7 +179,7 @@ function buscarJuego(evento) {
         }
 
         let nombreJuegoBuscado = document.getElementById('nombreJuegoBuscado').value;
-        const juegosFiltrados = catalogo.filter((juego) => juego.nombre.toUpperCase() === nombreJuegoBuscado.toUpperCase().trim());
+        const juegosFiltrados = catalogo.filter((juego) => juego.nombre.toUpperCase() === nombreJuegoBuscado.toUpperCase());
         
         let inputJuegoBuscado = document.getElementById('nombreJuegoBuscado');
         inputJuegoBuscado.value = '';
@@ -235,7 +233,7 @@ function buscarJuego(evento) {
   }
 }
 
-// ============ AGREGAR JUEGO (Agrega un videojuego del catálogo.) ============
+// ------------ AGREGAR JUEGO (Agrega un videojuego del catálogo.) ------------
 let botonAgregarJuego = document.getElementById('agregarJuego');
 botonAgregarJuego.addEventListener('click', agregarJuego);
 
@@ -339,7 +337,7 @@ function agregarJuego(evento) {
   }
 }
 
-// ============ ELIMINAR JUEGO (Elimina un videojuego del catálogo.) ============
+// ------------ ELIMINAR JUEGO (Elimina un videojuego del catálogo.) ------------
 
 let botonEliminarJuego = document.getElementById('eliminarJuego');
 botonEliminarJuego.addEventListener('click', eliminarJuego);
