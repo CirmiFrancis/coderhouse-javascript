@@ -15,22 +15,16 @@ const pokemon   = new Juego( 'POKEMON',   64000, 'NS',  2022);
 const spiderman = new Juego( 'SPIDERMAN', 90000, 'PS5', 2023);
 const gta       = new Juego( 'GTA',       50000, 'PS5', 2013);
 
-const catalogo = [minecraft, fifa, pokemon, spiderman, gta];
-
-// ============ ELIMINAR JUEGO (Verifica que el juego esté en el array. Si está, lo elimina.) ============
-
-function eliminarJuego(juego){
-  if (catalogo.includes(juego)){
-    const auxIndex = catalogo.indexOf(juego);
-    catalogo.splice(auxIndex, 1);
-    return `El juego llamado '${juego.nombre}' ha sido ELIMINADO del catálogo.`;
-  }
-  else {
-    return `El juego llamado '${juego.nombre}' no EXISTE en el catálogo.`;
-  }
-}
+let catalogo = [minecraft, fifa, pokemon, spiderman, gta];
 
 //===========================================================================================================================================
+
+if (localStorage.getItem('catalogoJuegos')) {
+  catalogo = JSON.parse(localStorage.getItem('catalogoJuegos'))
+}
+else {
+  catalogo = catalogo;
+}
 
 // ============ MOSTRAR JUEGOS (Muestra el catálogo completo de videojuegos.) ============
 
@@ -44,10 +38,6 @@ function mostrarJuegos(evento) {
 
   if (!mostrandoJuegos){
     mostrandoJuegos = true; // si no se está mostrando, mostrarlo
-
-    //catalogo.forEach((juego) => { // guardar cada juego del catalogo en el sessionStorage 
-    //  guardarEnSessionStorage(juego);
-    //})
 
     const container = document.createElement("div")
     container.classList.add('contenedorMostrarJuegos')
@@ -242,9 +232,9 @@ function agregarJuego(evento) {
 
       if (!agregandoJuegoNuevo){
 
-        let nombreJuegoNuevo = document.getElementById('nombreJuegoAAgregar').value;
+        let nombreJuegoNuevo = document.getElementById('nombreJuegoAAgregar').value.toUpperCase();
         let precioJuegoNuevo = document.getElementById('precioJuegoAAgregar').value;
-        let platfJuegoNuevo = document.getElementById('platfJuegoAAgregar').value;
+        let platfJuegoNuevo = document.getElementById('platfJuegoAAgregar').value.toUpperCase();
         let anioJuegoNuevo = document.getElementById('anioJuegoAAgregar').value;
 
         if(nombreJuegoNuevo === '' || isNaN(precioJuegoNuevo) || platfJuegoNuevo === '' ||isNaN(anioJuegoNuevo)){
@@ -259,6 +249,7 @@ function agregarJuego(evento) {
         }
         else {
           catalogo.push(juego);
+          localStorage.setItem('catalogoJuegos', JSON.stringify(catalogo));
           alert(`El juego llamado '${juego.nombre}' ha sido AGREGADO al catálogo.`);
 
           let inputNombreJuegoNuevo = document.getElementById('nombreJuegoAAgregar');
@@ -328,6 +319,7 @@ function eliminarJuego(evento) {
           if (juego.nombre === nombreJuegoAEliminar){
             const auxIndex = catalogo.indexOf(juego);
             catalogo.splice(auxIndex, 1);
+            localStorage.setItem('catalogoJuegos', JSON.stringify(catalogo));
           }
         });
 
@@ -350,23 +342,3 @@ function eliminarJuego(evento) {
     container.remove();
   }
 }
-
-
-
-/* CAMBIAR EL BACKGROUND-COLOR DEL BOTON SELECCIONADO
-
-let miVariable = true; // Puedes cambiar esto según tu lógica
-
-const miDiv = document.getElementById('miDiv');
-
-function cambiarColor() {
-  if (miVariable) {
-    miDiv.classList.add('colorCambiado');
-  } else {
-    miDiv.classList.remove('colorCambiado');
-  }
-}
-
-// Llamamos a la función al cargar la página o en respuesta a algún evento
-cambiarColor();
-*/
