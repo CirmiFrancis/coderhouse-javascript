@@ -31,7 +31,7 @@ h1:hover {
     text-align: center;
     padding-block: 5px;
     color: white;
-    background-color: red;
+    background-color: white;
 }
 
 .section1 h1 {
@@ -71,7 +71,7 @@ h1:hover {
 
 .section2 .contenedorMostrarJuegos {
     margin-top: 2rem;
-    padding: 10vh 15vw 10vh 15vw;
+    padding: 5vh 10vw 5vh 10vw;
     border: 2px solid black;
     border-radius: 20px;
     background-color: white;

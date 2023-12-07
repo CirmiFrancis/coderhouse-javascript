@@ -36,6 +36,30 @@ let mostrandoJuegos = false;  // variable auxiliar para saber si se está mostra
 function mostrarJuegos(evento) {
   evento.preventDefault();
 
+  if (buscandoJuego){
+    buscandoJuego = false;
+    const containerBuscarJuego = document.querySelector('.contenedorBuscarJuego')
+    containerBuscarJuego.remove();
+    const containerJuegoBuscado = document.querySelectorAll('.contenedorJuegoBuscado')
+    if (containerJuegoBuscado.length > 0) {
+      containerJuegoBuscado.forEach(function(container) {
+        container.remove();
+      });
+    }
+  }
+
+  if (agregandoJuego){
+    agregandoJuego = false;
+    const containerAgregarJuego = document.querySelector('.contenedorAgregarJuego')
+    containerAgregarJuego.remove();
+  }
+
+  if (eliminandoJuego){
+    eliminandoJuego = false;
+    const containerEliminarJuego = document.querySelector('.contenedorEliminarJuego')
+    containerEliminarJuego.remove();
+  }
+
   if (!mostrandoJuegos){
     mostrandoJuegos = true; // si no se está mostrando, mostrarlo
 
@@ -84,10 +108,27 @@ let botonBuscarJuego = document.getElementById('buscarJuego');
 botonBuscarJuego.addEventListener('click', buscarJuego);
 
 let buscandoJuego = false;
-let catalogoFiltrado = catalogo;
 
 function buscarJuego(evento) {
   evento.preventDefault();
+
+  if (mostrandoJuegos){
+    mostrandoJuegos = false;  // si se está mostrando, dejar de mostrarlo
+    const containerMostrarJuegos = document.querySelector('.contenedorMostrarJuegos')
+    containerMostrarJuegos.remove();
+  }
+
+  if (agregandoJuego){
+    agregandoJuego = false;
+    const containerAgregarJuego = document.querySelector('.contenedorAgregarJuego')
+    containerAgregarJuego.remove();
+  }
+
+  if (eliminandoJuego){
+    eliminandoJuego = false;
+    const containerEliminarJuego = document.querySelector('.contenedorEliminarJuego')
+    containerEliminarJuego.remove();
+  }
 
   if (!buscandoJuego){
     buscandoJuego = true;
@@ -184,9 +225,11 @@ function buscarJuego(evento) {
     const container = document.querySelector('.contenedorBuscarJuego')
     container.remove();
 
-    const container2 = document.querySelector('.contenedorJuegoBuscado')
-    if (container2){
-      container2.remove();
+    const container2 = document.querySelectorAll('.contenedorJuegoBuscado')
+    if (container2.length > 0) {
+      container2.forEach(function(container) {
+        container.remove();
+      });
     }
   }
 }
@@ -199,6 +242,31 @@ let agregandoJuego = false;
 
 function agregarJuego(evento) {
   evento.preventDefault();
+
+  if (mostrandoJuegos){
+    mostrandoJuegos = false;
+    const containerMostrarJuegos = document.querySelector('.contenedorMostrarJuegos')
+    containerMostrarJuegos.remove();
+  }
+
+  if (buscandoJuego){
+    buscandoJuego = false;
+    const containerBuscarJuego = document.querySelector('.contenedorBuscarJuego')
+    containerBuscarJuego.remove();
+    const containerJuegoBuscado = document.querySelectorAll('.contenedorJuegoBuscado')
+    if (containerJuegoBuscado.length > 0) {
+      containerJuegoBuscado.forEach(function(container) {
+        container.remove();
+      });
+    }
+  }
+
+  if (eliminandoJuego){
+    eliminandoJuego = false;
+    const containerEliminarJuego = document.querySelector('.contenedorEliminarJuego')
+    containerEliminarJuego.remove();
+  }
+
 
   if (!agregandoJuego){
     agregandoJuego = true;
@@ -282,6 +350,30 @@ let eliminandoJuego = false;
 
 function eliminarJuego(evento) {
   evento.preventDefault();
+
+  if (mostrandoJuegos){
+    mostrandoJuegos = false;
+    const containerMostrarJuegos = document.querySelector('.contenedorMostrarJuegos')
+    containerMostrarJuegos.remove();
+  }
+
+  if (buscandoJuego){
+    buscandoJuego = false;
+    const containerBuscarJuego = document.querySelector('.contenedorBuscarJuego')
+    containerBuscarJuego.remove();
+    const containerJuegoBuscado = document.querySelectorAll('.contenedorJuegoBuscado')
+    if (containerJuegoBuscado.length > 0) {
+      containerJuegoBuscado.forEach(function(container) {
+        container.remove();
+      });
+    }
+  }
+
+  if (agregandoJuego){
+    agregandoJuego = false;
+    const containerAgregarJuego = document.querySelector('.contenedorAgregarJuego')
+    containerAgregarJuego.remove();
+  }
 
   if (!eliminandoJuego){
     eliminandoJuego = true;
