@@ -29,35 +29,15 @@ if (localStorage.getItem('catalogoJuegos')) {
 // Al hacer clic en el botón con el ID 'mostrarJuegos', dispara una función.
 document.getElementById('mostrarJuegos').addEventListener('click', mostrarJuegos);  
 
-let mostrandoJuegos = false;  // Variable auxiliar que sirve como interruptor, para saber si el 'catalogo' se está mostrando o no.
+let interfazMostrarJuegos = false;  // Variable auxiliar que sirve como interruptor, para saber si el 'catalogo' se está mostrando o no.
 
-function mostrarJuegos(evento) {  //
-  evento.preventDefault();
+function mostrarJuegos(evento) {  
+  evento.preventDefault();  // Al hacer clic, no se actualiza el URL
 
-  if (buscandoJuego){ // Si está abierto ;
-    buscandoJuego = false;
-    const containerBuscarJuego = document.querySelector('.contenedorBuscarJuego')
-    containerBuscarJuego.remove();
-    const containerJuegoBuscado = document.querySelector('.contenedorJuegoBuscado')
-    if (containerJuegoBuscado) {
-      containerJuegoBuscado.remove();
-    }
-  }
+  mostrarUnoSacarElResto(1);
 
-  if (agregandoJuego){
-    agregandoJuego = false;
-    const containerAgregarJuego = document.querySelector('.contenedorAgregarJuego')
-    containerAgregarJuego.remove();
-  }
-
-  if (eliminandoJuego){
-    eliminandoJuego = false;
-    const containerEliminarJuego = document.querySelector('.contenedorEliminarJuego')
-    containerEliminarJuego.remove();
-  }
-
-  if (!mostrandoJuegos){
-    mostrandoJuegos = !mostrandoJuegos; // si no se está mostrando, mostrarlo
+  if (!interfazMostrarJuegos){
+    interfazMostrarJuegos = !interfazMostrarJuegos; // Si no se está mostrando, mostrarlo
 
     const container = document.createElement("div")
     container.classList.add('contenedorMostrarJuegos')
@@ -65,6 +45,7 @@ function mostrarJuegos(evento) {  //
     container.innerHTML=`<h2> Mostrar Juegos </h2><br>`
 
     catalogo.forEach((juego) => {
+
       const card = document.createElement("div")
       card.classList.add('cardJuego')
   
@@ -91,7 +72,7 @@ function mostrarJuegos(evento) {  //
     })
   }
   else {
-    mostrandoJuegos = !mostrandoJuegos;  // si se está mostrando, dejar de mostrarlo
+    interfazMostrarJuegos = !interfazMostrarJuegos;  // si se está mostrando, dejar de mostrarlo
 
     const container = document.querySelector('.contenedorMostrarJuegos')
     container.remove();
@@ -100,34 +81,17 @@ function mostrarJuegos(evento) {  //
 
 // ------------ BUSCAR JUEGO (Muestra el videojuego que coincida con el nombre de algún videojuego del catálogo.) ------------
 
-let botonBuscarJuego = document.getElementById('buscarJuego');
-botonBuscarJuego.addEventListener('click', buscarJuego);
+document.getElementById('buscarJuego').addEventListener('click', buscarJuego);
 
-let buscandoJuego = false;
+let interfazBuscarJuego = false;
 
 function buscarJuego(evento) {
   evento.preventDefault();
 
-  if (mostrandoJuegos){
-    mostrandoJuegos = false;  // si se está mostrando, dejar de mostrarlo
-    const containerMostrarJuegos = document.querySelector('.contenedorMostrarJuegos')
-    containerMostrarJuegos.remove();
-  }
+  mostrarUnoSacarElResto(2);
 
-  if (agregandoJuego){
-    agregandoJuego = false;
-    const containerAgregarJuego = document.querySelector('.contenedorAgregarJuego')
-    containerAgregarJuego.remove();
-  }
-
-  if (eliminandoJuego){
-    eliminandoJuego = false;
-    const containerEliminarJuego = document.querySelector('.contenedorEliminarJuego')
-    containerEliminarJuego.remove();
-  }
-
-  if (!buscandoJuego){
-    buscandoJuego = true;
+  if (!interfazBuscarJuego){
+    interfazBuscarJuego = !interfazBuscarJuego;
 
     const container = document.createElement("div")
     container.classList.add('contenedorBuscarJuego')
@@ -138,7 +102,6 @@ function buscarJuego(evento) {
     <h2> Buscar Juego </h2><br>
     <input id="nombreJuegoBuscado" type="text" placeholder="Escribe el nombre de un juego..."><br><br>
     <button type="submit" id="botonNombreJuegoBuscado">BUSCAR</button>
-    <button type="submit" id="limpiarJuegos">LIMPIAR</button>
     `
 
     container.appendChild(form)
@@ -146,82 +109,59 @@ function buscarJuego(evento) {
     const section2funciones = document.querySelector('.section2-funciones')
     section2funciones.appendChild(container)
 
-    let limpiarJuegosBuscados = document.getElementById('limpiarJuegos');
-    limpiarJuegosBuscados.addEventListener('click', function(evento) {
-      evento.preventDefault();
-
-      const containers = document.querySelectorAll('.contenedorJuegoBuscado');
-
-      if (containers.length > 0) {
-        containers.forEach(function(container) {
-          container.remove();
-        });
-        alert('Búsqueda limpiada.');
-      } 
-      else {
-        alert('No hay ninguna búsqueda para limpiar.');
-      }
-    });
-
     let botonBuscar = document.getElementById('botonNombreJuegoBuscado');
     botonBuscar.addEventListener('click', buscarJuegoSegunNombre);
-    
-    let buscandoJuegoPorNombre = false;
 
     function buscarJuegoSegunNombre(evento){
       evento.preventDefault();
 
-      if (!buscandoJuegoPorNombre){
+      const containerJuegoBuscado = document.querySelector('.contenedorJuegoBuscado')
+      if (containerJuegoBuscado) {
+        containerJuegoBuscado.remove();
+      }
 
-        const containerJuegoBuscado = document.querySelector('.contenedorJuegoBuscado')
-        if (containerJuegoBuscado) {
-          containerJuegoBuscado.remove();
-        }
+      let nombreJuegoBuscado = document.getElementById('nombreJuegoBuscado').value;
+      const juegosFiltrados = catalogo.filter((juego) => juego.nombre.toUpperCase() === nombreJuegoBuscado.toUpperCase());
+      
+      limpiarInputs('buscar');
 
-        let nombreJuegoBuscado = document.getElementById('nombreJuegoBuscado').value;
-        const juegosFiltrados = catalogo.filter((juego) => juego.nombre.toUpperCase() === nombreJuegoBuscado.toUpperCase());
-        
-        let inputJuegoBuscado = document.getElementById('nombreJuegoBuscado');
-        inputJuegoBuscado.value = '';
-
-        const container = document.createElement("div");
-        container.classList.add('contenedorJuegoBuscado');
-        
-        if (juegosFiltrados.length !== 0){
-          juegosFiltrados.forEach((juego) => {
-            const card = document.createElement("div")
-            card.classList.add('cardJuego')
-        
-            const nombre = document.createElement("h2")
-            nombre.textContent = `${juego.nombre}`
-            card.appendChild(nombre)
-        
-            const precio = document.createElement("p")
-            precio.textContent = `$${juego.precio}`
-            card.appendChild(precio)
-        
-            const plataforma = document.createElement("p")
-            plataforma.textContent = `${juego.plataforma}`
-            card.appendChild(plataforma)
-        
-            const anio = document.createElement("p")
-            anio.textContent = `${juego.anio}`
-            card.appendChild(anio)
-        
-            container.appendChild(card)
-        
-            const section2funciones = document.querySelector('.section2-funciones')
-            section2funciones.appendChild(container)
-          })
-        }
-        else {
-          alert('Ningún juego coincide con el nombre escrito. Por favor, busca otro distinto.');
-        }
+      const container = document.createElement("div");
+      container.classList.add('contenedorJuegoBuscado');
+      
+      if (juegosFiltrados.length !== 0){
+        juegosFiltrados.forEach((juego) => {
+          const card = document.createElement("div")
+          card.classList.add('cardJuego')
+      
+          const nombre = document.createElement("h2")
+          nombre.textContent = `${juego.nombre}`
+          card.appendChild(nombre)
+      
+          const precio = document.createElement("p")
+          precio.textContent = `$${juego.precio}`
+          card.appendChild(precio)
+      
+          const plataforma = document.createElement("p")
+          plataforma.textContent = `${juego.plataforma}`
+          card.appendChild(plataforma)
+      
+          const anio = document.createElement("p")
+          anio.textContent = `${juego.anio}`
+          card.appendChild(anio)
+      
+          container.appendChild(card)
+      
+          const section2funciones = document.querySelector('.section2-funciones')
+          section2funciones.appendChild(container)
+        })
+      }
+      else {
+        alert('Ningún juego coincide con el nombre escrito. Por favor, busca otro distinto.');
       }
     }
   }
   else {
-    buscandoJuego = false;
+    interfazBuscarJuego = !interfazBuscarJuego;
 
     const container = document.querySelector('.contenedorBuscarJuego')
     container.remove();
@@ -234,39 +174,18 @@ function buscarJuego(evento) {
 }
 
 // ------------ AGREGAR JUEGO (Agrega un videojuego del catálogo.) ------------
-let botonAgregarJuego = document.getElementById('agregarJuego');
-botonAgregarJuego.addEventListener('click', agregarJuego);
+document.getElementById('agregarJuego').addEventListener('click', agregarJuego);
 
-let agregandoJuego = false;
+let interfazAgregarJuego = false;
 
 function agregarJuego(evento) {
   evento.preventDefault();
 
-  if (mostrandoJuegos){
-    mostrandoJuegos = false;
-    const containerMostrarJuegos = document.querySelector('.contenedorMostrarJuegos')
-    containerMostrarJuegos.remove();
-  }
-
-  if (buscandoJuego){
-    buscandoJuego = false;
-    const containerBuscarJuego = document.querySelector('.contenedorBuscarJuego')
-    containerBuscarJuego.remove();
-    const containerJuegoBuscado = document.querySelector('.contenedorJuegoBuscado')
-    if (containerJuegoBuscado) {
-      containerJuegoBuscado.remove();
-    }
-  }
-
-  if (eliminandoJuego){
-    eliminandoJuego = false;
-    const containerEliminarJuego = document.querySelector('.contenedorEliminarJuego')
-    containerEliminarJuego.remove();
-  }
+  mostrarUnoSacarElResto(3);
 
 
-  if (!agregandoJuego){
-    agregandoJuego = true;
+  if (!interfazAgregarJuego){
+    interfazAgregarJuego = !interfazAgregarJuego;
 
     const container = document.createElement("div")
     container.classList.add('contenedorAgregarJuego')
@@ -289,48 +208,36 @@ function agregarJuego(evento) {
 
     let botonJuegoAAgregar = document.getElementById('botonJuegoAAgregar');
     botonJuegoAAgregar.addEventListener('click', agregarJuegoNuevo);
-    
-    let agregandoJuegoNuevo = false;
 
     function agregarJuegoNuevo(evento){
       evento.preventDefault();
 
-      if (!agregandoJuegoNuevo){
+      let nombreJuegoNuevo = document.getElementById('nombreJuegoAAgregar').value.toUpperCase();
+      let precioJuegoNuevo = document.getElementById('precioJuegoAAgregar').value;
+      let platfJuegoNuevo = document.getElementById('platfJuegoAAgregar').value.toUpperCase();
+      let anioJuegoNuevo = document.getElementById('anioJuegoAAgregar').value;
 
-        let nombreJuegoNuevo = document.getElementById('nombreJuegoAAgregar').value.toUpperCase();
-        let precioJuegoNuevo = document.getElementById('precioJuegoAAgregar').value;
-        let platfJuegoNuevo = document.getElementById('platfJuegoAAgregar').value.toUpperCase();
-        let anioJuegoNuevo = document.getElementById('anioJuegoAAgregar').value;
+      if(nombreJuegoNuevo === '' || isNaN(precioJuegoNuevo) || platfJuegoNuevo === '' || isNaN(anioJuegoNuevo)){
+        alert("Por favor, completa los campos e ingresa valores válidos. Gracias.")
+        return
+      }
 
-        if(nombreJuegoNuevo === '' || isNaN(precioJuegoNuevo) || platfJuegoNuevo === '' ||isNaN(anioJuegoNuevo)){
-          alert("Por favor, completa los campos e ingresa valores válidos. Gracias.")
-          return
-        }
+      const juego = new Juego(nombreJuegoNuevo, precioJuegoNuevo, platfJuegoNuevo, anioJuegoNuevo);
 
-        const juego = new Juego(nombreJuegoNuevo, precioJuegoNuevo, platfJuegoNuevo, anioJuegoNuevo);
+      if (catalogo.some( (juegoIncluido) => juegoIncluido.nombre === juego.nombre) ){
+        alert(`El juego llamado '${juego.nombre}' ya EXISTE en el catálogo.`);
+      }
+      else {
+        catalogo.push(juego);
+        localStorage.setItem('catalogoJuegos', JSON.stringify(catalogo));
+        alert(`El juego llamado '${juego.nombre}' ha sido AGREGADO al catálogo.`);
 
-        if (catalogo.some( (juegoIncluido) => juegoIncluido.nombre === juego.nombre) ){
-          alert(`El juego llamado '${juego.nombre}' ya EXISTE en el catálogo.`);
-        }
-        else {
-          catalogo.push(juego);
-          localStorage.setItem('catalogoJuegos', JSON.stringify(catalogo));
-          alert(`El juego llamado '${juego.nombre}' ha sido AGREGADO al catálogo.`);
-
-          let inputNombreJuegoNuevo = document.getElementById('nombreJuegoAAgregar');
-          let inputPrecioJuegoNuevo = document.getElementById('precioJuegoAAgregar');
-          let inputPlataformaJuegoNuevo = document.getElementById('platfJuegoAAgregar');
-          let inputAnioJuegoNuevo = document.getElementById('anioJuegoAAgregar');
-          inputNombreJuegoNuevo.value = '';
-          inputPrecioJuegoNuevo.value = '';
-          inputPlataformaJuegoNuevo.value = '';
-          inputAnioJuegoNuevo.value = '';
-        }
+        limpiarInputs('agregar');
       }
     }
   }
   else {
-    agregandoJuego = false;
+    interfazAgregarJuego = !interfazAgregarJuego;
 
     const container = document.querySelector('.contenedorAgregarJuego')
     container.remove();
@@ -339,38 +246,17 @@ function agregarJuego(evento) {
 
 // ------------ ELIMINAR JUEGO (Elimina un videojuego del catálogo.) ------------
 
-let botonEliminarJuego = document.getElementById('eliminarJuego');
-botonEliminarJuego.addEventListener('click', eliminarJuego);
+document.getElementById('eliminarJuego').addEventListener('click', eliminarJuego);
 
-let eliminandoJuego = false;
+let interfazEliminarJuego = false;
 
 function eliminarJuego(evento) {
   evento.preventDefault();
 
-  if (mostrandoJuegos){
-    mostrandoJuegos = false;
-    const containerMostrarJuegos = document.querySelector('.contenedorMostrarJuegos')
-    containerMostrarJuegos.remove();
-  }
+  mostrarUnoSacarElResto(4);
 
-  if (buscandoJuego){
-    buscandoJuego = false;
-    const containerBuscarJuego = document.querySelector('.contenedorBuscarJuego')
-    containerBuscarJuego.remove();
-    const containerJuegoBuscado = document.querySelector('.contenedorJuegoBuscado')
-    if (containerJuegoBuscado) {
-      containerJuegoBuscado.remove();
-    }
-  }
-
-  if (agregandoJuego){
-    agregandoJuego = false;
-    const containerAgregarJuego = document.querySelector('.contenedorAgregarJuego')
-    containerAgregarJuego.remove();
-  }
-
-  if (!eliminandoJuego){
-    eliminandoJuego = true;
+  if (!interfazEliminarJuego){
+    interfazEliminarJuego = !interfazEliminarJuego;
 
     const container = document.createElement("div")
     container.classList.add('contenedorEliminarJuego')
@@ -390,41 +276,98 @@ function eliminarJuego(evento) {
 
     let botonJuegoAEliminar = document.getElementById('botonJuegoAEliminar');
     botonJuegoAEliminar.addEventListener('click', eliminarJuegoPorNombre);
-    
-    let eliminandoJuegoPorNombre = false;
 
     function eliminarJuegoPorNombre(evento){
       evento.preventDefault();
 
-      if (!eliminandoJuegoPorNombre){
+      let nombreJuegoAEliminar = document.getElementById('nombreJuegoAEliminar').value.toUpperCase();
+      let cantidadJuegos = catalogo.length;
 
-        let nombreJuegoAEliminar = document.getElementById('nombreJuegoAEliminar').value.toUpperCase();
-        let cantidadJuegos = catalogo.length;
-
-        catalogo.forEach((juego) => {
-          if (juego.nombre === nombreJuegoAEliminar){
-            const auxIndex = catalogo.indexOf(juego);
-            catalogo.splice(auxIndex, 1);
-            localStorage.setItem('catalogoJuegos', JSON.stringify(catalogo));
-          }
-        });
-
-        if (cantidadJuegos !== catalogo.length){
-          alert(`El juego llamado '${nombreJuegoAEliminar}' ha sido ELIMINADO del catálogo.`);
+      catalogo.forEach((juego) => {
+        if (juego.nombre === nombreJuegoAEliminar){
+          const auxIndex = catalogo.indexOf(juego);
+          catalogo.splice(auxIndex, 1);
+          localStorage.setItem('catalogoJuegos', JSON.stringify(catalogo));
         }
-        else {
-          alert(`El juego llamado '${nombreJuegoAEliminar}' no EXISTE en el catálogo.`);
-        }
+      });
+
+      if (cantidadJuegos !== catalogo.length){
+        alert(`El juego llamado '${nombreJuegoAEliminar}' ha sido ELIMINADO del catálogo.`);
       }
-
-      let inputNombreJuegoAEliminar = document.getElementById('nombreJuegoAEliminar');
-      inputNombreJuegoAEliminar.value = '';
+      else {
+        alert(`El juego llamado '${nombreJuegoAEliminar}' no EXISTE en el catálogo.`);
+      }
+      limpiarInputs('eliminar');
     }
   }
   else {
-    eliminandoJuego = false;
+    interfazEliminarJuego = !interfazEliminarJuego;
 
     const container = document.querySelector('.contenedorEliminarJuego')
     container.remove();
+  }
+}
+
+// ------------ FUNCIONES REUTILIZABLES ------------
+
+// Se puede utilizar en: MOSTRAR / BUSCAR / AGREGAR / ELIMINAR. Sirve para mostrar la interfaz correspondiente y sacar el resto. No confundir con 'mostrarJuegos'.
+function mostrarUnoSacarElResto(numero) { // Elegir un número del 1 al 4, según qué subsección querés mostrar.
+  // Subsección 1
+  if (interfazMostrarJuegos && numero !== 1){ 
+    interfazMostrarJuegos = false;
+    const containerMostrarJuegos = document.querySelector('.contenedorMostrarJuegos')
+    containerMostrarJuegos.remove();
+  }
+  // Subsección 2
+  if (interfazBuscarJuego && numero !== 2){ 
+    interfazBuscarJuego = false;
+    const containerBuscarJuego = document.querySelector('.contenedorBuscarJuego')
+    containerBuscarJuego.remove();
+    const containerJuegoBuscado = document.querySelector('.contenedorJuegoBuscado')
+    if (containerJuegoBuscado) {
+      containerJuegoBuscado.remove();
+    }
+  }
+  // Subsección 3
+  if (interfazAgregarJuego && numero !== 3){ 
+    interfazAgregarJuego = false;
+    const containerAgregarJuego = document.querySelector('.contenedorAgregarJuego')
+    containerAgregarJuego.remove();
+  }
+  // Subsección 4
+  if (interfazEliminarJuego && numero !== 4){ 
+    interfazEliminarJuego = false;
+    const containerEliminarJuego = document.querySelector('.contenedorEliminarJuego')
+    containerEliminarJuego.remove();
+  }
+}
+
+// Se puede utilizar en: BUSCAR / AGREGAR / ELIMINAR. Sirve para limpiar los 'input', al hacer clic en el botón correspondiente.
+function limpiarInputs(parametro) { // Escribir como parámetro la subsección en la que quieras limpiar el/los 'input'.
+  switch (parametro) {
+
+      case 'buscar':
+          let inputJuegoBuscado = document.getElementById('nombreJuegoBuscado');
+          inputJuegoBuscado.value = '';
+          break;
+
+      case 'agregar':
+          let inputNombreJuegoNuevo = document.getElementById('nombreJuegoAAgregar');
+          inputNombreJuegoNuevo.value = '';
+          let inputPrecioJuegoNuevo = document.getElementById('precioJuegoAAgregar');
+          inputPrecioJuegoNuevo.value = '';
+          let inputPlataformaJuegoNuevo = document.getElementById('platfJuegoAAgregar');
+          inputPlataformaJuegoNuevo.value = '';
+          let inputAnioJuegoNuevo = document.getElementById('anioJuegoAAgregar');
+          inputAnioJuegoNuevo.value = '';
+          break;
+
+      case 'eliminar':
+          let inputNombreJuegoAEliminar = document.getElementById('nombreJuegoAEliminar');
+          inputNombreJuegoAEliminar.value = '';
+          break;
+
+      default:
+          break;
   }
 }
