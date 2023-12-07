@@ -40,11 +40,9 @@ function mostrarJuegos(evento) {
     buscandoJuego = false;
     const containerBuscarJuego = document.querySelector('.contenedorBuscarJuego')
     containerBuscarJuego.remove();
-    const containerJuegoBuscado = document.querySelectorAll('.contenedorJuegoBuscado')
-    if (containerJuegoBuscado.length > 0) {
-      containerJuegoBuscado.forEach(function(container) {
-        container.remove();
-      });
+    const containerJuegoBuscado = document.querySelector('.contenedorJuegoBuscado')
+    if (containerJuegoBuscado) {
+      containerJuegoBuscado.remove();
     }
   }
 
@@ -177,6 +175,11 @@ function buscarJuego(evento) {
 
       if (!buscandoJuegoPorNombre){
 
+        const containerJuegoBuscado = document.querySelector('.contenedorJuegoBuscado')
+        if (containerJuegoBuscado) {
+          containerJuegoBuscado.remove();
+        }
+
         let nombreJuegoBuscado = document.getElementById('nombreJuegoBuscado').value;
         const juegosFiltrados = catalogo.filter((juego) => juego.nombre.toUpperCase() === nombreJuegoBuscado.toUpperCase().trim());
         
@@ -225,11 +228,9 @@ function buscarJuego(evento) {
     const container = document.querySelector('.contenedorBuscarJuego')
     container.remove();
 
-    const container2 = document.querySelectorAll('.contenedorJuegoBuscado')
-    if (container2.length > 0) {
-      container2.forEach(function(container) {
-        container.remove();
-      });
+    const containerJuegoBuscado = document.querySelector('.contenedorJuegoBuscado')
+    if (containerJuegoBuscado) {
+      containerJuegoBuscado.remove();
     }
   }
 }
@@ -253,11 +254,9 @@ function agregarJuego(evento) {
     buscandoJuego = false;
     const containerBuscarJuego = document.querySelector('.contenedorBuscarJuego')
     containerBuscarJuego.remove();
-    const containerJuegoBuscado = document.querySelectorAll('.contenedorJuegoBuscado')
-    if (containerJuegoBuscado.length > 0) {
-      containerJuegoBuscado.forEach(function(container) {
-        container.remove();
-      });
+    const containerJuegoBuscado = document.querySelector('.contenedorJuegoBuscado')
+    if (containerJuegoBuscado) {
+      containerJuegoBuscado.remove();
     }
   }
 
@@ -312,7 +311,7 @@ function agregarJuego(evento) {
 
         const juego = new Juego(nombreJuegoNuevo, precioJuegoNuevo, platfJuegoNuevo, anioJuegoNuevo);
 
-        if (catalogo.includes(juego)){
+        if (catalogo.some( (juegoIncluido) => juegoIncluido.nombre === juego.nombre) ){
           alert(`El juego llamado '${juego.nombre}' ya EXISTE en el catálogo.`);
         }
         else {
@@ -330,7 +329,6 @@ function agregarJuego(evento) {
           inputAnioJuegoNuevo.value = '';
         }
       }
-      
     }
   }
   else {
@@ -361,11 +359,9 @@ function eliminarJuego(evento) {
     buscandoJuego = false;
     const containerBuscarJuego = document.querySelector('.contenedorBuscarJuego')
     containerBuscarJuego.remove();
-    const containerJuegoBuscado = document.querySelectorAll('.contenedorJuegoBuscado')
-    if (containerJuegoBuscado.length > 0) {
-      containerJuegoBuscado.forEach(function(container) {
-        container.remove();
-      });
+    const containerJuegoBuscado = document.querySelector('.contenedorJuegoBuscado')
+    if (containerJuegoBuscado) {
+      containerJuegoBuscado.remove();
     }
   }
 
