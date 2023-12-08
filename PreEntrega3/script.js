@@ -300,6 +300,7 @@ function eliminarJuego(e) {
 
 // ------------ REPRODUCIR/PAUSAR MÚSICA ------------
 
+// Botón de música ubicado en la parte inferior derecha de la pantalla. Al hacer clic una vez, se activa la música. Al volver a clickearlo, se pausa.
 document.getElementById('imagenBoton').addEventListener('click', function () {
   let reproductor = document.getElementById('reproductor');
 
