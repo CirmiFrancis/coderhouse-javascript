@@ -35,7 +35,7 @@ function mostrarJuegos(e) {
 
   mostrarUnoSacarElResto(1); // Muestra la interfaz correspondiente y quita las demás.
 
-  if (catalogo.length === 0){ // Nos aseguramos que 'catalogo' no esté vacío.
+  if (catalogo.length === 0) { // Nos aseguramos que 'catalogo' no esté vacío.
     alert('El catálogo está vacío. ¡Agrega algún juego!'); // Si está vacío, imprimir este mensaje.
   }
   else { // Si no está vacío, continuar con el proceso normal.
