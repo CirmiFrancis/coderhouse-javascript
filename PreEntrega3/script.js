@@ -368,3 +368,5 @@ function actualizarSection2Funciones(container) {
   const section2funciones = document.querySelector('.section2-funciones');
   section2funciones.appendChild(container);
 }
+
+//===========================================================================================================================================

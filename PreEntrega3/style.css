@@ -93,6 +93,10 @@ h1:hover, p:hover {
     border-radius: 10px;
 }
 
+.section2 .cardJuego:hover {
+    background-color: rgb(200, 200, 200);
+}
+
 .section2 input {
     width: 20vw;
 }
