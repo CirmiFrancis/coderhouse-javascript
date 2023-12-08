@@ -12,7 +12,7 @@
 
 body {
     min-height: 100vh;
-    background: url('./bg-image.jpg') center/cover no-repeat;
+    background: url('./media/bg-image.jpg') center/cover no-repeat;
 }
 
 a {
@@ -99,6 +99,23 @@ h1:hover, p:hover {
 
 .section2 input {
     width: 20vw;
+}
+
+/* BOTÓN DE MÚSICA */
+
+.audio-container {
+    position: absolute;
+    bottom: 1%;
+    right: 1%;
+}
+
+#imagenBoton {
+    width: 64px;
+}
+
+#imagenBoton:hover  {
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 /* ======================================================================================================================================= */

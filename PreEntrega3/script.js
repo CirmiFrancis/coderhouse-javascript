@@ -298,6 +298,21 @@ function eliminarJuego(e) {
   }
 }
 
+// ------------ REPRODUCIR/PAUSAR MÚSICA ------------
+
+document.getElementById('imagenBoton').addEventListener('click', function () {
+  let reproductor = document.getElementById('reproductor');
+
+  if (reproductor.paused) {
+    reproductor.play();
+    imagenBoton.src = "./media/soundOn-icon.png";
+  }
+  else {
+    reproductor.pause();
+    imagenBoton.src = "./media/soundOff-icon.png";
+  }
+});
+
 // ------------ FUNCIONES REUTILIZABLES ------------
 
 // Se puede utilizar en: MOSTRAR / BUSCAR / AGREGAR / ELIMINAR. Sirve para mostrar la interfaz correspondiente y sacar el resto. No confundir con 'mostrarJuegos'.
