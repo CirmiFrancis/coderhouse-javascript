@@ -35,44 +35,49 @@ function mostrarJuegos(e) {
 
   mostrarUnoSacarElResto(1); // Muestra la interfaz correspondiente y quita las demás.
 
-  if (!interfazMostrarJuegos) {
-    interfazMostrarJuegos = !interfazMostrarJuegos; // Si no se está mostrando la interfaz, mostrarlo.
-
-    const container = document.createElement("div"); // Crea el contenedor.
-    container.classList.add('contenedorMostrarJuegos'); // Le agrega la clase al contenedor.
-
-    container.innerHTML=`<h2> Mostrar Juegos </h2><br>`; // Agrega título al contenedor.
-
-    catalogo.forEach((juego) => { // Crea la 'card' de cada juego con sus datos, para poder verlos.
-      const card = document.createElement("div");
-      card.classList.add('cardJuego');
-  
-      const nombre = document.createElement("h3");
-      nombre.textContent = `${juego.nombre.toUpperCase()}`;
-      card.appendChild(nombre);
-
-      const precio = document.createElement("p");
-      precio.textContent = `$${juego.precio}`;
-      card.appendChild(precio);
-  
-      const plataforma = document.createElement("p");
-      plataforma.textContent = `${juego.plataforma.toUpperCase()}`;
-      card.appendChild(plataforma);
-  
-      const anio = document.createElement("p");
-      anio.textContent = `${juego.anio}`;
-      card.appendChild(anio);
-  
-      container.appendChild(card);
-  
-      actualizarSection2Funciones(container); // Agrega el 'container' correspondiente, en la section2-funciones.
-    });
+  if (catalogo.length === 0){ // Nos aseguramos que 'catalogo' no esté vacío.
+    alert('El catálogo está vacío. ¡Agrega algún juego!'); // Si está vacío, imprimir este mensaje.
   }
-  else {
-    interfazMostrarJuegos = !interfazMostrarJuegos; // Si se está mostrando la interfaz, dejar de mostrarlo.
-
-    const container = document.querySelector('.contenedorMostrarJuegos');
-    container.remove(); // Elimina la interfaz.
+  else { // Si no está vacío, continuar con el proceso normal.
+    if (!interfazMostrarJuegos) {
+      interfazMostrarJuegos = !interfazMostrarJuegos; // Si no se está mostrando la interfaz, mostrarlo.
+  
+      const container = document.createElement("div"); // Crea el contenedor.
+      container.classList.add('contenedorMostrarJuegos'); // Le agrega la clase al contenedor.
+  
+      container.innerHTML=`<h2> Mostrar Juegos </h2><br>`; // Agrega título al contenedor.
+  
+      catalogo.forEach((juego) => { // Crea la 'card' de cada juego con sus datos, para poder verlos.
+        const card = document.createElement("div");
+        card.classList.add('cardJuego');
+    
+        const nombre = document.createElement("h3");
+        nombre.textContent = `${juego.nombre.toUpperCase()}`;
+        card.appendChild(nombre);
+  
+        const precio = document.createElement("p");
+        precio.textContent = `$${juego.precio}`;
+        card.appendChild(precio);
+    
+        const plataforma = document.createElement("p");
+        plataforma.textContent = `${juego.plataforma.toUpperCase()}`;
+        card.appendChild(plataforma);
+    
+        const anio = document.createElement("p");
+        anio.textContent = `${juego.anio}`;
+        card.appendChild(anio);
+    
+        container.appendChild(card);
+    
+        actualizarSection2Funciones(container); // Agrega el 'container' correspondiente, en la section2-funciones.
+      });
+    }
+    else {
+      interfazMostrarJuegos = !interfazMostrarJuegos; // Si se está mostrando la interfaz, dejar de mostrarlo.
+  
+      const container = document.querySelector('.contenedorMostrarJuegos');
+      container.remove(); // Elimina la interfaz.
+    }
   }
 }
 
