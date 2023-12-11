@@ -20,9 +20,7 @@ let catalogo = [minecraft, fifa, pokemon, spiderman, gta];
 //===========================================================================================================================================
 
 // Al entrar a la página, si hay una KEY en el localStorage llamado 'catalogoJuegos', lo obtenemos, lo pasamos de JSON a Objeto y lo asignamos al 'catalogo'. Esto está hecho para que, al agregar/eliminar un juego, ese cambio quede guardado en el localStorage. Por lo tanto, al salir y entrar de la página, el cambio sigue estando.
-if (localStorage.getItem('catalogoJuegos')) {
-  catalogo = JSON.parse(localStorage.getItem('catalogoJuegos'));
-}
+localStorage.getItem('catalogoJuegos') && (catalogo = JSON.parse(localStorage.getItem('catalogoJuegos'))); // Operador AND
 
 // ------------ MOSTRAR JUEGOS (Muestra el catálogo completo de videojuegos.) ------------
 
@@ -116,9 +114,7 @@ function buscarJuego(e) {
       e.preventDefault(); // Al hacer clic, no se actualiza el URL de la página, por lo que evita errores.
 
       const containerJuegoBuscado = document.querySelector('.contenedorJuegoBuscado'); 
-      if (containerJuegoBuscado) { 
-        containerJuegoBuscado.remove(); 
-      } // Para evitar crear varias 'card' de juegos buscados, primero se elimina el que existe (si existe) y luego se crea el otro 'card'.
+      containerJuegoBuscado && containerJuegoBuscado.remove(); // Para evitar crear varias 'card' de juegos buscados, primero se elimina el que existe (si existe) y luego se crea el otro 'card'. Operador AND. 
 
       let nombreJuegoBuscado = document.getElementById('nombreJuegoBuscado').value.toUpperCase(); // Se guarda el input del juego buscado.
       const juegosFiltrados = catalogo.filter((juego) => juego.nombre.toUpperCase() === nombreJuegoBuscado); // Se filtra aquel o aquellos juegos que coincidan con el nombre del input. 
@@ -167,9 +163,7 @@ function buscarJuego(e) {
     container.remove(); // Elimina la interfaz.
 
     const containerJuegoBuscado = document.querySelector('.contenedorJuegoBuscado');
-    if (containerJuegoBuscado) {
-      containerJuegoBuscado.remove(); // Elimina la interfaz del juego buscado, si hay.
-    }
+    containerJuegoBuscado && containerJuegoBuscado.remove(); // Elimina la interfaz del juego buscado, si hay. Operador AND.
   }
 }
 
@@ -286,7 +280,7 @@ function eliminarJuego(e) {
         }
       }); // Si algún juego coincide con el nombre ingresado, se elimina del 'catalogo' y se elimina, también, del localStorage.
 
-      if (cantidadJuegos !== catalogo.length) { // Nos aseguramos de que el juego haya sido eliminado.
+      if (cantidadJuegos !== catalogo.length) { // Nos aseguramos de que el juego haya sido eliminado. Podría haberlo hecho con 'Operador Ternario' pero preferí usar el 'If-Else'.
         alert(`El juego llamado '${nombreJuegoAEliminar}' ha sido ELIMINADO del catálogo.`);
       }
       else {
@@ -335,10 +329,7 @@ function mostrarUnoSacarElResto(numero) { // Elegir un número del 1 al 4, segú
     const containerBuscarJuego = document.querySelector('.contenedorBuscarJuego');
     containerBuscarJuego.remove();
     const containerJuegoBuscado = document.querySelector('.contenedorJuegoBuscado');
-
-    if (containerJuegoBuscado) {
-      containerJuegoBuscado.remove();
-    }
+    containerJuegoBuscado && containerJuegoBuscado.remove(); // Operador AND.
   }
   // Subsección 3
   if (interfazAgregarJuego && numero !== 3) { 

@@ -793,7 +793,7 @@ function cargarFormulario() {
 
 /*
 
-//------------ Operador ++ ------------
+//------------ Operador ++ (Sugar Syntax) ------------
 Se puede usar '++' para simplificar el código.
 
   let num = 10
@@ -969,5 +969,287 @@ Si queremos acceder a otras posiciones, o mejor dicho omitir las primeras, podem
   const [,, a, b] = nombres
   console.log(a)              // "Carlos" 
   console.log(b)              // "Mariela"
+
+*/
+
+//========================================= CLASE 13 - OPERADORES AVANZADOS II =========================================
+/*
+
+//------------ Operador Spread (...) ------------
+
+Es una herramienta que nos permite, como su nombre indica, desparramar un array u objeto. En otras palabras, cambiar la forma en la que presentamos este array u objeto.
+
+Unir Arrays o Objetos
+También puedes combinar objetos de manera similar
+Pasar Argumentos a Funciones
+Clonar ObjetosCrear Objetos Literales
+
+--- Spread de Arrays ---
+
+let array1 = [1, 2, 3];
+let array2 = [4, 5, 6];
+let combinedArray = [...array1, ...array2]; // [1, 2, 3, 4, 5, 6]
+
+------
+
+const nombres = ["Juan", "Julieta", "Carlos", "Mariela"]
+
+console.log(nombres) // ["Juan", "Julieta", "Carlos", "Mariela"]
+console.log(...nombres) // Juan Julieta Carlos Mariela
+
+------
+
+const numeros = [4, 77, 92, 10, 3, -32, 54, 11]
+console.log( Math.max(numeros) ) // NaN
+
+const numeros = [4, 77, 92, 10, 3, -32, 54, 11]
+console.log( Math.max(...numeros) ) // 92
+
+--- Spread de Objetos ---
+
+const usuario1 = { 
+  nombre: "Juan",
+  edad: 24,
+  curso: "Javascript" 
+}
+
+const usuario3 = { 
+  ...usuario1,
+  curso: "ReactJS",
+  email: "juan@doe.com" 
+}
+
+console.log(usuario3) // { nombre: 'Juan', edad: 24, curso: 'ReactJS', email: 'juan@doe.com' }
+
+------------ Rest parameters ------------
+
+function sumar(...numeros) {
+  return numeros.reduce((acc, n) => acc + n, 0)
+}
+
+console.log( sumar(4, 2) ) // 6
+console.log( sumar(10, 15, 30, 5) ) // 60
+console.log( sumar(100, 300, 50) ) // 450
+
+*/
+
+//========================================= CLASE 14 - LIBRERÍAS =========================================
+/*
+
+¿Qué son las librerías?
+
+Son códigos pre-escritos que facilitan el desarrollo de aplicaciones. Podemos pensar las librerías como pequeños programas escritos por terceros que podemos incorporar a nuestra aplicación para resolver problemas determinados.
+Se incorporan descargando archivos o a través de CDN.
+
+¡Es importante aprender a leer documentación!
+
+------
+
+Algunas librerías:
+
+  - Sweet Alert: reemplaza el alert() tradicional, haciéndolo customizable y más atractivo.
+
+  - Toastify JS: permite mostrar mensajes de notificación personalizados.
+
+  - Luxon: permite trabajar con fechas y horas de una forma sencilla. Con Luxon puedes formatear, parsear, sumar y restar fechas, entre otras funciones.
+
+*/
+
+//========================================= CLASE 15 - ASINCRONÍA & PROMESAS =========================================
+/*
+
+//------------------------ ASINCRONÍA ------------------------
+
+La programación sincrónica funciona de manera lineal, ejecutando una acción y después otra. Sólo podemos realizar una tarea a la vez y cada tarea es bloqueante de la siguiente.
+
+La programación asincrónica, por otro lado, permite que múltiples tareas sucedan a la vez. Al comenzar una acción, nuestro programa sigue en ejecución; y cuando la acción termina nuestro programa es informado y consigue acceso al resultado correspondiente.
+
+------ setTimeout ------
+Es una función que ejecuta una operación después de un cierto tiempo especificado. Permite realizar acciones asincrónicamente. La función recibe dos parámetros: una función de callback y un valor numérico que representa milisegundos.
+
+  setTimeout(fn, time)
+
+  setTimeout(()=> {
+  console.log("Proceso asincrónico")
+  }, 3000)
+
+EJEMPLO: 'Inicia Proceso' y 'Fin proceso' se muestran en la consola inmediatamente, en cambio, 'Mitad de proceso' se muestra a los 2 segundos.
+
+  console.log("Inicia proceso")
+  setTimeout(()=> { 
+    console.log("Mitad de proceso")
+  }, 2000)
+  console.log("Fin proceso")
+
+  // Inicia proceso
+  // Fin proceso
+  // Mitad de proceso - tras 2 segundos
+
+EJEMPLO 2: al hacer clic en 'btn', añadimos a 'popup' la clase 'popup-active', la cual se remueve a los 2.5 segundos. Esta función es similar a lo que vimos en SweetAlert y Toastify.
+
+  const btn = document.querySelector('#boton')
+  const popup = document.querySelector('#popup-mensaje')
+
+  btn.addEventListener('click', () => { 
+    popup.classList.add('popup-active')
+
+    setTimeout(() => { 
+      popup.classList.remove('popup-active')
+    }, 2500) 
+  })
+
+------ clearTimeout ------
+Es una función que cancela la ejecución de una operación programada con 'setTimeout'.
+
+EJEMPLO: el timeout generado nunca llega a ejecutarse porque es removida antes de que transcurran 2 segundos.
+
+  console.log("Inicio")
+
+  const fin = setTimeout(() => {
+    console.log("fin")
+  }, 2000)
+
+  clearTimeout(fin)
+
+------ setInterval ------
+Es una función que ejecuta repetidamente una operación a intervalos de tiempo regulares.
+
+------ clearInterval ------
+Es una función que detiene la ejecución de operaciones programadas con 'setInterval'.
+
+EJEMPLO: seteamos un intervalo que suma repetidamente en 1 a la variable 'counter', imprimiendo, también, por consola el valor de la variable, cada 1000 milisegundos (un segundo). Al ser igual o mayor a 5, removemos el intervalo y avisamos por consola.
+
+  let counter = 0
+  const interval = setInterval(() => {
+    counter++
+    console.log("Counter: ", counter)
+  
+    if (counter >= 5) { 
+      clearInterval(interval) 
+      console.log("Se removió el intervalo")
+    }
+  }, 1000)
+
+------ Callback ------
+Función que se pasa como argumento a otra función y se ejecuta después de que se complete alguna operación.
+
+------ Call Stack (pila) ------
+Es una lista donde se apilan las distintas tareas a ejecutar por nuestro programa. Javascript es un lenguaje single threaded, o de un único hilo, lo que significa que tiene un único stack o pila de ejecución.
+Es una estructura de datos que registra las llamadas a funciones en ejecución. Funciona en un principio de último en entrar, primero en salir (Last In, First Out - LIFO). 
+
+------ Event Loop ------
+Es la herramienta que permite la sincronización entre nuestro call stack con estas tareas asincrónicas que funcionan en un thread aparte. Si el stack está vacío, el Event Loop envía la primera función que esté en la callback queue al call stack y comienza a ejecutarse.
+Es un mecanismo que maneja la ejecución de código asíncrono en JavaScript, garantizando que el call stack se mantenga despejado para evitar bloqueos.
+
+------ Loupe ------
+http://latentflip.com/loupe/
+Es una visualización que nos ayuda a comprender cómo interactúan entre sí call stack, event loop y callback queue. Podemos escribir código sincrónico y asincrónico y ver cómo es el funcionamiento de estas piezas en conjunto.
+
+//------------------------ PROMESAS ------------------------
+
+Es un objeto de Javascript que representa un evento a futuro. Es una acción asincrónica que se puede completar en algún momento y producir un valor, y notificar cuando esto suceda.
+
+------ Promise, Resolve & Reject ------
+
+Una promesa puede ser resulta o rechazada, y cuenta con tres estados posibles: PENDING, FULFILLED & REJECTED.
+
+  new Promise( (resolve, reject) => {
+    //cuerpo de la promesa
+  })
+
+En principio, una promesa se retorna con estado pending, entendiendo que el valor a generar aún no fue resuelto.
+
+  const eventoFuturo = () => {
+    return new Promise( (resolve, reject) => {
+      //cuerpo de la promesa
+    }) 
+  }
+  console.log( eventoFuturo() ) // Promise { <pending> }
+
+Si el cuerpo de la promesa llama a resolve(), la promesa cambiará su estado a FULFILLED, con el valor enviado a resolve().
+Si la promesa llama a reject(), cambiará su estado a REJECTED con el valor enviado al reject().
+
+  const eventoFuturo = (res) => {
+    return new Promise( (resolve, reject) => {
+      if (res === true) {
+          resolve('Promesa resuelta')
+      } else {
+          reject('Promesa rechazada')
+      } 
+    })
+  }
+  console.log( eventoFuturo(true) ) // Promise { 'Promesa resuelta' }
+  console.log( eventoFuturo(false) ) // Promise { <rejected> 'Promesa rechazada' }
+
+El mismo caso agregando un delay con 'setTimeout':
+
+  const eventoFuturo = (res) => {
+    return new Promise( (resolve, reject) => {
+      setTimeout( () => {
+          res ? resolve('Promesa resuelta') : reject('Promesa rechazada')
+      }, 2000) 
+    })
+  }
+  console.log( eventoFuturo(true) ) // Promise { <pending> }
+  console.log( eventoFuturo(false) ) // Promise { <pending> }
+
+------ .then(), .catch() & .finally() ------
+
+Al llamado de una función que retorne una promesa, podemos concatenar el método .then() o .catch(), los cuales reciben una función por parámetro con la cual se captura el valor de la promesa:
+
+.then() : Si la promesa es resuelta, su valor de retorno se captura dentro del .then(), recibiendo por parámetro de su función ese valor.
+
+  eventoFuturo(true)
+    .then( (response) => {
+      console.log(response) // Promesa resuelta 
+    })
+
+.catch() : si la promesa es rechazada, su valor se captura dentro de un .catch() siguiendo la misma lógica.
+
+  eventoFuturo(false) 
+    .catch( (error) => {
+      console.log(error) // Promesa rechazada 
+    })
+
+Para cada promesa podemos definir una estructura para trabajar los distintos casos posibles. Cada promesa sólo puede resolverse o rechazarse una única vez.
+
+  eventoFuturo(true)
+    .then( (response) => {
+      console.log(response) // Promesa resuelta
+    })
+    .catch( (error) => {
+      console.log(error)
+    })
+
+  eventoFuturo(false)
+    .then( (response) => {
+      console.log(response)
+    })
+    .catch( (error) => {
+      console.log(error) // Promesa rechazada
+    })
+
+.finally() : es un método que recibe una función la cual se ejecutará siempre al finalizar la secuencia, sin importar si se haya resuelto o no la promesa.
+
+  eventoFuturo(true)
+    .then( (response) => {
+      console.log(response)
+    })
+    .catch( (error) => {
+      console.log(error)
+    })
+    .finally( () => {
+      console.log("Fin del proceso")
+    })
+  // Promesa resuelta
+  // Fin del proceso
+
+*/
+
+//========================================= CLASE 16 - AJAX & FETCH =========================================
+
+/*
+
+...
 
 */
