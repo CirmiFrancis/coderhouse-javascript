@@ -1151,7 +1151,7 @@ Es un objeto de Javascript que representa un evento a futuro. Es una acción asi
 
 ------ Promise, Resolve & Reject ------
 
-Una promesa puede ser resulta o rechazada, y cuenta con tres estados posibles: PENDING, FULFILLED & REJECTED.
+Una promesa puede ser resuelta o rechazada, y cuenta con tres estados posibles: PENDING, FULFILLED & REJECTED.
 
   new Promise( (resolve, reject) => {
     //cuerpo de la promesa
