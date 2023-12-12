@@ -76,7 +76,7 @@ h1:hover, p:hover {
 .section2 .contenedorJuegoBuscado,
 .section2 .contenedorAgregarJuego,
 .section2 .contenedorEliminarJuego {
-    margin-top: 2rem;
+    margin-block: 2rem;
     padding: 5vh 5vw 5vh 5vw;
     border: 2px solid black;
     border-radius: 20px;
@@ -104,7 +104,7 @@ h1:hover, p:hover {
 /* BOTÓN DE MÚSICA */
 
 .audio-container {
-    position: absolute;
+    position: fixed;
     bottom: 1%;
     right: 1%;
 }
