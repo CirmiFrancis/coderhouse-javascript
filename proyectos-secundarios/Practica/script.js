@@ -1,5 +1,7 @@
 //========================================= CLASE 5 - OBJETO =========================================
 
+/*
+
 //alert('¡Hola! Gracias por participar en este desafío. Necesito que abras las consola y estés atento a la misma. ¡Suerte!')
 
 console.log('==========================================================')
@@ -65,7 +67,11 @@ arma1.mejorar()
 console.log(arma1)
 console.log('==========================================================')
 
+*/
+
 //========================================= CLASE 6 - ARRAY =========================================
+
+/*
 
 //Declarando un par de ARRAYS
 
@@ -197,7 +203,12 @@ for (const arma of listaArmas) {
 
 console.log('==========================================================')
 
+*/
+
 //========================================= CLASE 7 - FUNCIONES ORDEN SUPERIOR I =========================================
+
+/*
+
 //Las funciones de orden superior son aquellas que pueden recibir otras funciones como argumentos o devolver funciones como resultado
 
 //Creando un casco, con funciones
@@ -312,7 +323,11 @@ function hayArmaFuerte(){
 console.log(hayArmaFuerte())
 console.log('==========================================================')
 
+*/
+
 //========================================= CLASE 8 - FUNCIONES ORDEN SUPERIOR II =========================================
+
+/*
 
 //Math, facilita la resolución de problemas matemáticos predefinidos
 
@@ -336,7 +351,6 @@ console.log('==========================================================')
 
 //Date (Fecha)
 
-/* 
   año: (4 digitos)
   mes: (0-11)
   dia del mes: (1-31)
@@ -344,7 +358,6 @@ console.log('==========================================================')
   minutos: (0-59)
   segundos: (0-59)
   mili-segundos: (0-999)
-*/
 
 const fecha = new Date()
 
@@ -375,11 +388,14 @@ console.log('==========================================================')
 
 //.trim(), es un método que sirve para eliminar espacios en blanco de una cadena de texto
 
+*/
+
 //========================================= CLASE 9 - DOM =========================================
+
+/*
 
 //DOM: Modelo de Objeto de Documento. Define la estructura lógica de los documentos y el modo en que se accede y manipula. El DOM organiza un documento como una estructura de nodos en un árbol, donde cada parte del documento es representada por un nodo.
 
-/*
 Tipos de nodos:
 
 Element Nodes   (Nodos de Elemento):    Elementos HTML, como <p>, <div>, <span>, etc.
@@ -387,11 +403,9 @@ Attribute Nodes (Nodos de Atributo):    Atributos de un elemento HTML. Por ejemp
 Text Nodes      (Nodos de Texto):       Contenido de texto dentro de un elemento. Por ejemplo, el texto dentro de un párrafo (<p>).
 Comment Nodes   (Nodos de Comentario):  Comentarios en el código HTML.
 Document Nodes  (Nodos de Documento):   Representan el documento en sí.
-*/
 
 //Ejemplo de como un archivo HTML es dividido y clasificado en los distintos nodos del árbol.
 
-/*
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -405,9 +419,7 @@ Document Nodes  (Nodos de Documento):   Representan el documento en sí.
   </div>
 </body>
 </html>
-*/
 
-/*
 Document Node (#document)
   Element Node (html)
     Element Node (head)
@@ -419,7 +431,6 @@ Document Node (#document)
           Element Node (span)
             Text Node (mundo)
           Text Node (!)
-*/
 
 //document
 
@@ -459,7 +470,7 @@ let nodoHijo = document.createElement("p");                                     
 nodoHijo.textContent = "Nuevo texto generado después del otro texto generado.";   // Agrega texto al elemento <p>
 nodoPadre.appendChild(nodoHijo);                                                  // Agrega un nodo hijo al nodo padre.
 
-/* No estoy seguro de que estos ejemplos estén correctamente implementados. */
+// No estoy seguro de que estos ejemplos estén correctamente implementados.
 
 //console.dir() - Se utiliza para imprimir en la consola una representación detallada de un objeto JavaScript. Proporciona una vista más estructurada y jerárquica del objeto en la consola del navegador.
 
@@ -487,12 +498,13 @@ console.log(productos)
 
 //document.getElementById("edad").value = 36
 
-/*
-En resumen, la línea de código completa está asignando el valor 36 a un elemento de formulario con el ID "edad". Si "edad" es un campo de entrada, por ejemplo, el valor en ese campo se establecerá en 36. Esto puede ser útil para predefinir o actualizar el valor de un campo de entrada en una página web mediante JavaScript.
+// En resumen, la línea de código completa está asignando el valor 36 a un elemento de formulario con el ID "edad". Si "edad" es un campo de entrada, por ejemplo, el valor en ese campo se establecerá en 36. Esto puede ser útil para predefinir o actualizar el valor de un campo de entrada en una página web mediante JavaScript.
+
 */
 
 //========================================= CLASE 10 - EVENTOS =========================================
 /*
+
 // EVENTO
 
 En JavaScript, un evento es una acción que ocurre en el documento web (página). Como hacer clic en un botón, mover el mouse, cargar una página, etc. Cuando se produce un evento, el navegador web envía una señal al código JS para ejecutar una función específica en respuesta al evento.
@@ -1250,6 +1262,295 @@ Para cada promesa podemos definir una estructura para trabajar los distintos cas
 
 /*
 
-...
+//------------------------ AJAX (Asynchronous JavaScript and XML) ------------------------
+
+------ AJAX ------ 
+
+Es una técnica de desarrollo web que utiliza varias tecnologías, como: JavaScript, HTML, CSS, XML y XMLHttpRequest, para crear aplicaciones web interactivas y dinámicas. La característica principal de AJAX es la capacidad de realizar solicitudes asíncronas al servidor web sin recargar la página completa. Esto permite la actualización de partes específicas de una página sin la necesidad de cargarla nuevamente.
+
+Ejemplo: Gmail usa AJAX, ya que para actualizar los mails recibidos, no recarga toda la página y solamente actualiza esa parte.
+
+------ Modelo Cliente-Servidor ------
+
+- Frontend: Navegador web (HTML, CSS, JS) 
+- Backend: Servidor & Base de Datos (Node JS, PHP, Laravel | MySQL, PostgreSQL)
+
+Las apps consumen recursos provistos por algún servidor (back-end), o envía datos a éste para almacenarlos de forma persistente. Es fundamental aprender a dominar los métodos para realizar este intercambio de información y comprender el protocolo implicado.
+
+------ Peticiones HTTP ------
+
+El mecanismo por el cual se piden y proveen datos a través de internet es HTTP (HyperText Transfer Protocol).
+Cuando emitimos una orden al navegador, hace una petición (o request) HTTP a algún servidor. Luego, la recibirá, procesará y nos devolverá una respuesta con información que utilizaremos en la aplicación.
+Estas peticiones que debemos hacer están definidas por varias partes:
+- Una URL o dirección: nos comunicamos con un servidor para pedir información a través de una URL.
+- Un método (GET, POST, PUT, DELETE).
+  * GET:    Para obtener información (o recurso) del servidor. Suelen ser las más utilizadas.
+  * POST:   Para enviar información al servidor para crear algún recurso.
+  * PUT:    Para crear o modificar algún recurso en el servidor.
+  * DELETE: Para eliminar algún recurso en el servidor.
+- Headers. 
+- Body.
+- Parámetros (Query Params o URL Params).
+  * Query Params: son datos adicionales que se incluyen en una URL después del símbolo de interrogación ('?' o '?q'). Estos parámetros están compuestos por pares clave-valor y se utilizan para enviar información adicional al servidor a través de la URL.
+  Ejemplo: https://ejemplo.com/pagina?nombre=Juan&edad=25
+  * URL Params: es un término más general y puede referirse tanto a los parámetros de consulta como a cualquier parte de la URL que contiene información específica. Los parámetros de URL también pueden incluir segmentos de la URL que contienen valores variables.
+  Ejemplo: https://ejemplo.com/pagina/:id
+  Esta sintaxis permite enviar parámetros directamente en la forma de segmentos de la URL, es decir separados por / .
+
+  https://www.domain.com/page?key1=value1&key2=value2
+
+  '?':      empieza el query string
+  'key1':   nombre de variable
+  '=':      separador de valor
+  'value1': valor de la propiedad
+  '&':      separador
+  'key2':   nombre de variable 2
+  '=':      separador de valores
+  'value2': valor de la propiedad 2
+
+------ API (Application Programming Interfaces) ------
+
+Es una aplicación web construida en base a la arquitectura API REST, a la cual podemos solicitar y enviar información desde el cliente. Generalmente, nos comunicamos con aplicaciones de este tipo y es la tendencia actual de desarrollo.
+La ventaja de este modelo es que está orientado a recursos y define métodos claros para solicitar y enviar información.
+
+Hay muchas APIs disponibles que podemos utilizar para acceder a distintos recursos útiles para nuestra aplicación:
+- Servicios de contenido (CMS), 
+- Plataformas de pago, 
+- Servicios de e-mail, 
+etcétera.
+
+Existe una API que sirve para hacer pruebas de peticiones, llamada JSONPlaceholder. En esta podremos notar que existen distintas rutas que podemos usar:
+- GET:      /posts
+- GET:      /posts/1
+- GET:      /posts/1/comments
+- GET:      /comments?postId=1
+- POST:     /posts
+- PUT:      /posts/1
+- PATCH:    /posts/1
+- DELETE:   /posts/1
+Descargué la extensión 'Thunder Client' para experimentar con la página 'https://jsonplaceholder.typicode.com/'.
+
+Una API suele tener una URL base (el dominio donde está alojada la aplicación) y luego puede tener varios endpoints, es decir, distintas secciones a las que podemos acceder.
+
+//------------------------ FETCH ------------------------
+
+Javascript nos ofrece el método fetch() para hacer peticiones HTTP a algún servicio externo. Como estas peticiones son asincrónicas, convenientemente el método fetch() trabaja con promesas.
+  
+  fetch(url, config)
+
+Por defecto el método fetch hace peticiones del tipo GET. 
+
+Usando la API de JSON Placeholder como ejemplo, podemos ver que, según la documentación, para obtener una lista de posts debemos hacer una petición del siguiente tipo.
+
+  fetch('https://jsonplaceholder.typicode.com/posts')
+    .then( (response) => response.json() );
+    .then( (json) => console.log(json) );
+
+Para trabajar con la resolución de la petición, debemos hacerlo dentro del .then() correspondiente:
+
+  console.log( fetch('https://jsonplaceholder.typicode.com/posts') ) 
+  // Promise {<pending>}
+
+  fetch('https://jsonplaceholder.typicode.com/posts')
+    .then( (resp) => console.log(resp) )
+  // Response
+
+------ Response ------
+
+LLamar a fetch() retorna una promesa que resuelve en un objeto Response que contiene información sobre la respuesta del servidor, como su código de estado y headers.
+Para acceder al contenido de la respuesta debemos dar un paso adicional, y por eso es que se ven dos .then() concatenados.
+
+Generalmente, se transfieren datos en formato JSON. Por lo tanto, para obtener el contenido de la respuesta debemos aplicar el método .json() a ese objeto. Éste retorna a su vez una Promesa, por lo que capturamos su contenido (los datos enviados por la API) en un segundo .then()
+
+  fetch('https://jsonplaceholder.typicode.com/posts') 
+    .then( (resp) => resp.json() )
+    .then( (data) => {
+      console.log(data) 
+    })
+
+En el parámetro data tenemos el contenido de la respuesta de nuestra petición. En este caso, la API nos responde con un array de 100 elemento donde cada elemento es un post.
+
+Trabajar con APIs nos ofrece un entorno claro sobre cómo comunicarnos y obtener respuestas con recursos. Sin embargo, cada API define qué responder, qué formato darle a los datos que envía y cómo estructurarlos. Por lo tanto, siempre debemos analizar las respuestas obtenidas para ver qué datos utilizar de ellas.
+
+En este caso, cada elemento tiene propiedades: body, id, title, userId. Para acceder a sus objetos y propiedades podemos hacer:
+
+  fetch('https://jsonplaceholder.typicode.com/posts' )
+    .then( (resp) => resp.json() ) 
+    .then( (data) => {
+      console.log( data[0].title ) 
+      console.log( data[0].body )
+
+Para volcarlo al DOM...
+
+  // HTML
+  <h2>Posts!</h2> 
+    <hr/>
+    <ul id="listado"> 
+    </ul>
+
+  // JavaScript
+  const lista = document.querySelector('#listado')
+  fetch('https://jsonplaceholder.typicode.com/posts')
+    .then( (resp) => resp.json() )
+    .then( (data) => {
+      data.forEach((post) => {
+        const li = document.createElement('li')
+        li.innerHTML = 
+        `
+          <h4>${post.title}</h4>
+          <p>${post.body}</p>
+        `
+        lista.append(li)
+      })
+    })
+
+------ Enviando datos con post ------
+
+La API de JSON Placeholder también nos permite simular peticiones POST, es decir, podemos hacer una petición para enviar datos a la API. Al ser una simulación, no se crean recursos realmente en el servidor, pero sí obtenemos una respuesta aceptando el POST.
+
+Dijimos que el segundo parámetro del método .fetch() es un objeto de configuración. En éste podemos definir el método, los headers y el body de la petición. Si bien fetch trae valores por defecto para esto (como el método que es GET), podemos modificarlo a
+discreción según sea necesario.
+
+  fetch('https://jsonplaceholder.typicode.com/posts', 
+  {
+    method: 'POST',
+    body: JSON.stringify({
+      title: 'Coderhouse', 
+      body: 'Post de prueba', 
+      userId: 1,
+    }), 
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    }, 
+  })
+    .then((response) => response.json()) 
+    .then((data) => console.log(data))
+
+- method: ‘POST’. Significa que el método de la petición será POST. Si no lo modificamos será de tipo GET por defecto.
+- headers: En este caso se agrega una propiedad ‘Content-type’, con el valor que nos indica la documentación de la API. Si no se agrega la petición sería rechazada por el servidor.
+- body: Aquí se adjuntan los datos a enviar al servidor. En este caso se envía un objeto con la forma { title, body, userId }. El body debe enviarse en formato JSON, por eso lo vemos envuelto en un JSON.stringify().
+
+Por lo general, al hacer un POST obtenemos una respuesta que nos envía una copia del recurso creado en el servidor.
+
+------ Rutas Relativas ------
+
+Si la URL utilizada no contiene el prefijo ‘https:’, la ruta es relativa. Así, podemos hacer una petición a algún archivo local en formato JSON usando fetch.
+
+  // data.json
+  [
+    {"nombre": "Producto 1", "precio": 1500, "id": 1}, 
+    {"nombre": "Producto 2", "precio": 2500, "id": 2}, 
+    {"nombre": "Producto 3", "precio": 3500, "id": 3}, 
+    {"nombre": "Producto 4", "precio": 4500, "id": 4}, 
+    {"nombre": "Producto 5", "precio": 5500, "id": 5}
+  ]
+
+  const lista = document.querySelector('#listado')
+  fetch('/data.json')
+    .then( (res) => res.json()) 
+    .then( (data) => {
+      data.forEach((producto) => {
+        const li = document.createElement('li') 
+        li.innerHTML = 
+        `
+          <h4>${producto.nombre}</h4> 
+          <p>${producto.precio}</p> 
+          <p>Código: ${producto.id}</p> 
+          <hr/>
+        `
+        lista.append(li) 
+      })
+    })
+
+------ Async-Await ------
+
+Trabajar con promesas facilita mucho el control de los procesos asincrónicos. Sin embargo, en procesos extensos se puede dificultar el trabajo escribiendo todo dentro de varios .then().
+
+Por suerte, las promesas se pueden trabajar como si escribiéramos código sincrónico con: async-await.
+
+La sentencia await nos permite establecer un punto de espera en el código. Aplicado como prefijo a una promesa (en este caso, el return del fetch) se bloquea la ejecución de la siguiente instrucción hasta que la promesa se resuelva.
+Así, agregando esta sentencia podemos ver que ahora en la variable vemos el objeto Response, o sea la promesa resuelta:
+
+  const resp = await 
+  fetch('https://jsonplaceholder.typicode.com/posts') 
+  console.log(resp) // Response
+
+Pero await sólo puede utilizarse dentro de una función asincrónica, y se agrega como prefijo a la función asincrónica. Aquí es donde entra la sentencia async, la cual sirve para declarar una función como asincrónica, y se agrega como prefijo a la función.
+Así, dentro de una función async podemos utilizar la sentencia await vista previamente. Esto nos permite esperar a que se resuelvan las promesas vistas para continuar con la instrucción siguiente.
+
+  async function pedirPosts() { }
+  // o
+  const pedirPosts = async () => { }
+
+El resultado es una sintaxis que se asemeja a la escritura sincrónica tradicional. Obtenemos el mismo resultado que antes, pero con una sintaxis más clara. El async-await funcionan de la mano. Recordamos que es una herramienta adicional que puede facilitar la escritura, no es una obligación.
+
+  const pedirPosts = async () => {
+      const resp = await
+  fetch('https://jsonplaceholder.typicode.com/posts')
+    const data = await resp.json()
+    data.forEach((post) => {
+      const li = document.createElement('li')
+      li.innerHTML = 
+      `
+        <h4>${post.title}</h4>
+        <p>${post.body}</p>
+      `
+      lista.append(li)
+    })
+  }
+  pedirPosts()
+
+*/
+
+//========================================= CLASE 17 - FRAMEWORKS & NODE JS =========================================
+
+/*
+
+//------------------------ NODE JS ------------------------
+
+Es un entorno adicional de ejecución para Javascript. Es un programa que permite ejecutar código JavaScript por fuera del navegador. Con él podemos construir desde aplicaciones de línea de comandos (consola) hasta servidores HTTP para potenciar aplicaciones web.
+
+------ NPM (Node Package Manager) ------
+
+Es un repositorio de módulos de Node. 
+Muchos de esos programas que incorporamos a nuestros proyectos están escritos como paquetes, o módulos, de Node. En el repositorio NPM se listan y alojan para descargarlos e integrarlos a las APPs de forma sencilla.
+
+El comando 'npm init' crea un archivo llamado package.json que contiene información sobre nuestra app, como nombre, autor, versión, dependencias, etcétera.
+
+//------------------------ FRAMEWORKS ------------------------
+
+------ React JS, Angular y Vue JS ------
+
+React JS, Angular y Vue Js trabajan con componentes. 
+Un componente es un conjunto de elementos que conforman una unidad funcional (un header, un footer, un carousel, etcétera). Pensar en componentes permite dividir nuestra app en diferentes piezas y trabajarlas por separado, integrándose en una estructura mayor para formar la app. Este enfoque nos permite desarrollar la lógica de comportamiento de cada componente de forma modular, sin interferir en la lógica de los otros.
+
+- React JS: es la más popular y la más flexible. Está respaldada por mucha documentación. Requiere de librerías de terceros.
+- Angular: tiene una curva de aprendizaje empinada. Es usada por muchas empresas por lo completa que es. Utiliza Typescript.
+- Vue JS: es más fácil de aprender y sencillo de integrar. No compite ni a nivel empresarial ni a nivel comunidad con las otras.
+
+------ SPA (Simple Page Application) ------
+
+Aplicación de una sola página, es una web app que consiste de un único archivo HTML que se carga al ingresar al sitio, y el resto de la navegación y cambios de página se da mediante modificación dinámica del DOM con Javascript.
+
+Una SPA tiene el propósito de brindar una experiencia más fluida al usuario, mejorando la performance y velocidad. Esto se logra ya que todos los códigos de HTML, JavaScript, y CSS se cargan una sola vez o los recursos necesarios se cargan dinámicamente cuando lo requiera la página, normalmente como respuesta a las acciones del usuario.
+
+Arquitectura: 
+Cliente <--> Servidor <--> Base de Datos
+
+Router:
+Controla e interpreta cada solicitud del usuario. En una SPA los cambios de URL no significan cargar nuevos archivos html, sino que son captados por un router que entiende qué modificar del DOM para representar una nueva vista.
+
+MVC (Modelo - Vista - Controlador):
+Es un patrón de arquitectura de software que separa los datos de una aplicación de su representación, y el módulo encargado de gestionar los eventos y la comunicación. Define, por un lado, componentes para la representación de la información y, por otro lado, para la interacción del usuario
+Usuario <--> Vista <--> Controlador <--> Modelo
+
+------ Fullstack con JS: MERN, MEAN Y MEVN STACK ------
+
+La sigla MERN viene de: 
+- MongoDB: un sistema de base de datos NoSQL orientado a documentos y de código abierto, 
+- Express: un framework para Node.js que sirve para crear aplicaciones de backend en menos tiempo, 
+- React: un framework de frontend para crear aplicaciones web, 
+- Node: un entorno en tiempo de ejecución multiplataforma para la capa del servidor basado en JavaScript. 
+Puedes reemplazar React por Angular o Vue, y eso da MEAN y MEVN.
 
 */
