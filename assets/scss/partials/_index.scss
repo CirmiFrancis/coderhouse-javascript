@@ -1,4 +1,148 @@
-body h1 {
-    color: blue;
-    font-size: 17px;
+.index {
+
+    // ============================== Estilos GENERALES ==============================
+    html, body{
+        max-width: 100%;
+        height: 100vh;
+    }
+
+    main {
+        background: $gradiente-fondo;
+    }
+
+    nav, main, footer {
+        margin: 0;
+        padding: 0; 
+    }
+
+    li{
+        list-style: none;
+    }
+    
+    a{
+        text-decoration: none;
+    }
+
+    hr {
+        display: block;
+        clear: both;
+        margin: 0;
+        width: 95%;               
+        height: 1px;
+        border: 0;
+        background-color:#d3d3d3;
+    }
+
+    .lucesTop {
+        @include lucesGeneral;
+        top: 20%;
+    }
+
+    .lucesBottom {
+        @include lucesGeneral;
+        top: 60%;
+
+        img {
+            transform: scaleX(-1);
+        }
+    }
+
+    // ============================== Estilos de MAIN ==============================
+    main {
+        padding-top: 40px;
+
+        h1 {
+            font-size: 20px;
+            padding-block: 2px;
+            color: white;
+        }
+
+        .carousel-slide-custom {
+            
+            border-radius: 20px;
+        }
+
+        .carousel-slide-custom h2, .carousel-slide-custom p {
+            text-shadow: 2px 2px 1px black;
+        }
+
+        .border-white   {box-shadow: 0px 0px 20px white; }
+        .border-red     {box-shadow: 0px 0px 20px red;   }
+        .border-orange  {box-shadow: 0px 0px 20px orange;}
+        .border-yellow  {box-shadow: 0px 0px 20px yellow;}
+        .border-green   {box-shadow: 0px 0px 20px green; }
+        .border-cyan    {box-shadow: 0px 0px 20px cyan;  }
+        .border-blue    {box-shadow: 0px 0px 20px blue;  }
+        .border-purple  {box-shadow: 0px 0px 20px purple;}
+
+        .tachado {
+            text-decoration: line-through;
+        }
+
+        .section2 {
+            margin-top: 80px;
+            color: white;
+
+            p {
+                margin: 80px;
+                text-align: justify;
+            }
+
+            .input-group-custom {
+                box-shadow: 0px 5px 5px black;
+                transition: all 0.25s;
+
+                .form-control {  
+                    box-shadow: none;
+                }
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+
+    // ============================== Estilos de FOOTER ==============================
+    footer {
+        border-top: 1px solid white;
+
+        p {
+            margin: 0;
+        }
+
+        .padding-custom {
+            padding-block: 30px;
+            padding-inline: 100px;
+        }
+
+        .logo-footer {
+            font-family: Rowdies;
+            font-size: 24px;
+            color: white;
+        }
+
+        .subtitulo-footer {
+            font-family: Montserrat;
+            font-weight: bold;
+            font-size: 20px;
+            color: white;
+        }
+
+        .redes-sociales {
+            gap: 10px;
+    
+            img {
+                width: 28px;
+            }
+        }
+
+        .copyright {
+            font-size: 12px;
+        }
+
+        .subrayado {
+            text-decoration: underline;
+        }
+    }
 }

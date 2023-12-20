@@ -1,20 +1,192 @@
 <!doctype html>
 <html lang="es">
+
   <head>
+    <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>GGames</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Title -->
+    <title>GiGames</title>
+    <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- CSS -->
     <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Icon -->
+    <link rel="icon" href="./assets/media/img/icons/g.png" type="image/x-icon">
   </head>
-  <body>
-    <h1>Instalate unos jueguitos, cabro</h1>
 
-    <div class="row d-flex bg-danger">
-        <div class="col d-flex justify-content-center">hola</div>
-        <div class="col d-flex justify-content-center">chau</div>
+  <body class="index d-flex flex-column">
+    
+    <!-- LUCES -->
+    <div class="lucesTop">
+      <img src="./assets/media/img/luces.png" alt="Imagen de luces de colores puestas de fondo, en la parte superior">
+    </div>
+    <div class="lucesBottom">
+      <img src="./assets/media/img/luces.png" alt="Imagen de luces de colores puestas de fondo, en la parte inferior">
     </div>
 
+    <!-- NAVBAR -->
+    <nav class="d-flex justify-content-center sticky-top bg-dark">
+      <a class="px-5 custom-logo" href="./index.html">GiGames</a>
+      
+      <div class="cosas d-flex align-items-center">
+        <div class="dropdown">
+          <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="./assets/media/img/icons/cart.png" alt="Ícono de Carrito de Compras">
+          </a>
+          <ul class="dropdown-menu mt-3">
+            <li><a class="dropdown-item text-center" href="#">El carrito está vacío</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+     <!-- MAIN -->
+    <main class="container-fluid d-flex flex-column align-items-center main-custom">
+
+      <section class="row container-fluid d-flex justify-content-center w-75">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+          </div>
+
+          <div class="carousel-inner carousel-slide-custom border-white" id="carousel-border-color">
+            <div class="carousel-item active">
+              <img src="./assets/media/img/juegos/carousel/bg3.webp" class="d-block w-100" alt="Imagen del videojuego Baldur's Gate 3">
+              <div class="carousel-caption d-none d-md-block">
+                <h2>Baldur's Gate 3</h2>
+                <p> <span class="tachado">$59.99</span> $53.99 (10%) </p>
+                <span class="descuento">10%</span>
+              </div>
+            </div>
+
+            <div class="carousel-item carousel-slide-custom">
+              <img src="./assets/media/img/juegos/carousel/aw2.webp" class="d-block w-100" alt="Imagen del videojuego Alan Wake 2">
+              <div class="carousel-caption d-none d-md-block">
+                <h2>Alan Wake 2</h2>
+                <p> <span class="tachado">$49.99</span> $39.99 (20%) </p>
+              </div>
+            </div>
+
+            <div class="carousel-item carousel-slide-custom">
+              <img src="./assets/media/img/juegos/carousel/re4.webp" class="d-block w-100" alt="Imagen del videojuego Resident Evil 4, el remake lanzado en 2023">
+              <div class="carousel-caption d-none d-md-block">
+                <h2>Resident Evil 4</h2>
+                <p> <span class="tachado">$29.99</span> $14.99 (50%) </p> 
+              </div>
+            </div>
+
+            <div class="carousel-item carousel-slide-custom">
+              <img src="./assets/media/img/juegos/carousel/gta5.webp" class="d-block w-100" alt="Imagen del videojuego Grand Theft Auto 5">
+              <div class="carousel-caption d-none d-md-block">
+                <h2>Grand Theft Auto V</h2>
+                <p> <span class="tachado">$39.99</span> $13.99 (65%) </p> 
+              </div>
+            </div>
+            
+            <div class="carousel-item carousel-slide-custom">
+              <img src="./assets/media/img/juegos/carousel/gow.webp" class="d-block w-100" alt="Imagen del videojuego God of War, la secuela lanzada en 2018">
+              <div class="carousel-caption d-none d-md-block">
+                <h2>God of War (2018)</h2>
+                <p> <span class="tachado">$49.99</span> $24.99 (50%) </p> 
+              </div>
+            </div>
+          </div>
+          
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+
+        </div>
+      </section>
+      
+      <section class="section2 d-flex flex-column align-items-center">
+
+        <div class="input-group w-75 input-group-custom">
+          <input type="text" class="form-control" placeholder="Ingresa el nombre de un juego..." aria-label="Recipient's username" aria-describedby="button-addon2">
+          <button class="btn btn-warning text-dark" type="button" id="button-addon2">Buscar</button>
+        </div>
+        
+        <p>
+          Bienvenido a GiGames, tu destino virtual para sumergirte en el emocionante mundo de los videojuegos de PC. En nuestro rincón digital, ofrecemos una experiencia única diseñada para satisfacer las ansias de los jugadores más apasionados. Navegar por GiGames es como explorar un vasto universo de posibilidades, donde cada clic te acerca a emocionantes aventuras, desafíos y diversión sin límites. <br><br>
+
+          Con un catálogo cuidadosamente seleccionado, GiGames presenta las últimas novedades en videojuegos de PC, desde títulos AAA hasta gemas independientes que capturan la esencia creativa de la industria. Nos enorgullece ofrecer una colección diversa que abarca géneros para todos los gustos, desde épicas sagas de rol hasta trepidantes juegos de acción y estrategia. <br><br>
+          
+          En GiGames, la calidad es nuestra máxima prioridad. Trabajamos en estrecha colaboración con desarrolladores líderes para asegurarnos de que cada título que ofrecemos cumple con los más altos estándares de excelencia gráfica, jugabilidad innovadora y narrativa cautivadora. Además, nuestra plataforma es fácil de usar, brindando una experiencia de compra rápida y segura para que puedas empezar a jugar en cuestión de minutos. <br><br>
+          
+          ¿Buscas ofertas irresistibles? GiGames también es tu destino para encontrar descuentos exclusivos, promociones especiales y paquetes de juegos que maximizarán tu experiencia sin vaciar tu billetera. Además, nuestro equipo de atención al cliente está siempre disponible para responder a tus preguntas, ofrecer asistencia técnica y garantizar que tu travesía por GiGames sea tan suave como el rendimiento de tu PC gaming. <br><br>
+          
+          Bienvenido a GiGames, donde la pasión por los videojuegos se encuentra con la comodidad de las compras online. ¡Prepárate para descubrir, jugar y disfrutar!
+        </p>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="container-fluid d-flex flex-column align-items-center text-light bg-dark">
+
+      <hr>
+
+      <div class="d-flex col-12 padding-custom">
+
+        <div class="col-5 d-flex flex-column">
+          <p class="logo-footer">GiGames</p><br>
+          <p>GiGames es una tienda en línea de videojuegos para PC <br> ubicada en Buenos Aires, Argentina</p>
+        </div>
+
+        <div class="col-3 d-flex flex-column">
+          <p class="subtitulo-footer">Contáctanos</p><br>
+          <p>+54 11 1234-5678</p>
+          <p>support@gigames.com</p>
+        </div>
+
+        <div class="col-4 d-flex flex-column">
+          <p class="subtitulo-footer">Redes Sociales</p><br>
+
+          <div class="redes-sociales d-flex w-100">            
+            <a href="https://www.facebook.com" target="_blank"><img src="./assets/media/img/rrss/facebook.png" alt="Ícono de Facebook"></a>
+            <a href="https://www.twitter.com" target="_blank"><img src="./assets/media/img/rrss/twitter.png" alt="Ícono de Twitter"></a>
+            <a href="https://www.instagram.com" target="_blank"><img src="./assets/media/img/rrss/instagram.png" alt="Ícono de Instagram"></a> 
+            <a href="https://www.youtube.com" target="_blank"><img src="./assets/media/img/rrss/youtube.png" alt="Ícono de Youtube"></a> 
+            <a href="https://www.reddit.com" target="_blank"><img src="./assets/media/img/rrss/reddit.png" alt="Ícono de Reddit"></a> 
+          </div>
+
+          <p class="subtitulo-footer pt-5">Newsletter</p><br>
+          <form class="d-flex justify-content-between">
+            <input type="email" class="form-control w-75" id="exampleFormControlInput1" placeholder="name@example.com">
+            <button type="button" class="btn btn-outline-light">Suscribir</button>
+          </form>
+        </div>
+
+      </div>
+
+      <hr>
+      
+      <div class="copyright text-center pt-2 pb-3 w-100">
+        Copyright &COPY; 2023 GiGames
+        <br>
+        El uso de este sitio web implica la aceptación de los <span class="subrayado">Términos y condiciones</span> y <span class="subrayado">Política de privacidad</span>. Todos los derechos de autor, marcas comerciales y marcas de servicio pertenecen a sus correspondientes propietarios.
+      </div>
+
+    </footer>
+
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- Snow -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/JQuery-Snowfall/1.7.4/snowfall.min.js"></script>
+    <!-- Local JS -->
+    <script src="./assets/js/script.js"></script>
+
   </body>
 </html>

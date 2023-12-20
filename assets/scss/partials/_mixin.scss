@@ -1,0 +1,8 @@
+@mixin lucesGeneral {
+    position: absolute;
+
+    img {
+        width: 100%;
+        z-index: -1;
+    }
+}
