@@ -1,31 +1,28 @@
 nav {
-    // border-bottom: 1px solid white;
-
-    ul {
-        gap: 20px;
-    }
+    border-bottom: 1px solid white;
 
     li {
         font-family: Montserrat;
     }
 
     .custom-logo {
-        font-family: Rowdies;
-        font-size: 64px;
-        color: white;
         transition: all 0.25s;
 
         &:hover {
             transform: scale(1.10);
         }
+
+        h1 {
+            font-family: Rowdies;
+            font-size: 64px;
+            color: white;
+        }
     }
 
-    .cosas {
+    .carrito {
         position: absolute;
         top: 35%;
         right: 5%;
-
-        gap: 20px;
 
         img {
             width: 32px;

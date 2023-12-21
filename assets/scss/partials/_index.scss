@@ -1,62 +1,24 @@
 .index {
-
-    // ============================== Estilos GENERALES ==============================
-    html, body{
-        max-width: 100%;
-        height: 100vh;
-    }
-
-    main {
-        background: $gradiente-fondo;
-    }
-
-    nav, main, footer {
-        margin: 0;
-        padding: 0; 
-    }
-
-    li{
-        list-style: none;
-    }
-    
-    a{
-        text-decoration: none;
-    }
-
-    hr {
-        display: block;
-        clear: both;
-        margin: 0;
-        width: 95%;               
-        height: 1px;
-        border: 0;
-        background-color:#d3d3d3;
-    }
-
-    .lucesTop {
-        @include lucesGeneral;
-        top: 20%;
-    }
-
-    .lucesBottom {
-        @include lucesGeneral;
-        top: 60%;
-
-        img {
-            transform: scaleX(-1);
+    .luces {
+        .lucesTop {
+            @include lucesGeneral;
+            top: 20%;
+        }
+        
+        .lucesBottom {
+            @include lucesGeneral;
+            top: 20vh;
+        
+            img {
+                transform: scaleX(-1);
+            }
         }
     }
 
-    // ============================== Estilos de MAIN ==============================
     main {
         padding-top: 40px;
-
-        h1 {
-            font-size: 20px;
-            padding-block: 2px;
-            color: white;
-        }
-
+        background: $gradiente-fondo;
+        
         .carousel-slide-custom {
             
             border-radius: 20px;
@@ -100,49 +62,6 @@
                     transform: scale(1.05);
                 }
             }
-        }
-    }
-
-    // ============================== Estilos de FOOTER ==============================
-    footer {
-        border-top: 1px solid white;
-
-        p {
-            margin: 0;
-        }
-
-        .padding-custom {
-            padding-block: 30px;
-            padding-inline: 100px;
-        }
-
-        .logo-footer {
-            font-family: Rowdies;
-            font-size: 24px;
-            color: white;
-        }
-
-        .subtitulo-footer {
-            font-family: Montserrat;
-            font-weight: bold;
-            font-size: 20px;
-            color: white;
-        }
-
-        .redes-sociales {
-            gap: 10px;
-    
-            img {
-                width: 28px;
-            }
-        }
-
-        .copyright {
-            font-size: 12px;
-        }
-
-        .subrayado {
-            text-decoration: underline;
         }
     }
 }

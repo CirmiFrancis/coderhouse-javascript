@@ -1,0 +1,40 @@
+footer {
+
+    p {
+        margin: 0;
+    }
+
+    .padding-custom {
+        padding-block: 30px;
+        padding-inline: 100px;
+    }
+
+    .logo-footer {
+        font-family: Rowdies;
+        font-size: 24px;
+        color: white;
+    }
+
+    .subtitulo-footer {
+        font-family: Montserrat;
+        font-weight: bold;
+        font-size: 20px;
+        color: white;
+    }
+
+    .redes-sociales {
+        gap: 10px;
+
+        img {
+            width: 28px;
+        }
+    }
+
+    .copyright {
+        font-size: 12px;
+    }
+
+    .subrayado {
+        text-decoration: underline;
+    }
+}
