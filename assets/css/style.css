@@ -1,6 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Lora&family=Merriweather&family=Montserrat:wght@400;500;600&family=Orbitron:wght@400;500;600&family=Pixelify+Sans&family=Poppins:wght@400;500;600&family=Rowdies&family=Rubik+Pixels&family=Russo+One&display=swap");
 html, body {
   max-width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
 }
 
 nav, main, footer {
@@ -27,7 +35,7 @@ hr {
 }
 
 nav {
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid gray;
 }
 nav li {
   font-family: Montserrat;

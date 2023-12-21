@@ -1,6 +1,14 @@
-html, body{
+html, body {
     max-width: 100%;
+    min-height: 100vh;
     //elimine el height porque el body ocupaba hasta la mitad por algun motivo
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
 }
 
 nav, main, footer {
