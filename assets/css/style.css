@@ -4,6 +4,7 @@ html, body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
+  background-color: #212529;
 }
 
 body {
@@ -34,9 +35,6 @@ hr {
   background-color: #d3d3d3;
 }
 
-nav {
-  border-bottom: 1px solid gray;
-}
 nav li {
   font-family: Montserrat;
 }
@@ -47,8 +45,11 @@ nav .custom-logo:hover {
   transform: scale(1.1);
 }
 nav .custom-logo h1 {
+  margin: 0;
   font-family: Rowdies;
   font-size: 64px;
+  border-bottom: 2px solid white;
+  border-radius: 8px;
   color: white;
 }
 nav .carrito {
@@ -68,16 +69,79 @@ nav .carrito img:hover {
   transform: scale(1.1);
 }
 
+.index .luces {
+  z-index: 1;
+}
+.index .luces .lucesTop {
+  position: absolute;
+  top: 20%;
+}
+.index .luces .lucesTop img {
+  width: 100%;
+  z-index: -1;
+}
+.index .luces .lucesBottom {
+  position: absolute;
+  top: 20%;
+}
+.index .luces .lucesBottom img {
+  width: 100%;
+  z-index: -1;
+}
+.index .luces .lucesBottom img {
+  transform: scaleX(-1);
+}
+.index main {
+  padding-top: 40px;
+  background: linear-gradient(0deg, rgb(33, 37, 41) 0%, rgb(27, 25, 40) 50%, rgb(33, 37, 41) 100%);
+}
+.index main .tachado {
+  text-decoration: line-through;
+  color: gray;
+}
+.index main .descuento {
+  position: absolute;
+  bottom: 5%;
+  right: 3%;
+  padding: 15px;
+  font-family: Montserrat;
+  font-weight: bold;
+  font-size: 2rem;
+  border: 1px solid white;
+  border-radius: 10px;
+  color: white;
+  background-color: rgba(0, 128, 0, 0.9);
+}
+.index main .section-input {
+  margin-top: 70px;
+  width: 60%;
+  color: white;
+}
+.index main .section-input .input-group-custom {
+  box-shadow: 0px 5px 5px black;
+  transition: all 0.25s;
+}
+.index main .section-input .input-group-custom:hover {
+  transform: scale(1.05);
+}
+
 footer p {
   margin: 0;
 }
+footer .padding-between-content {
+  padding-bottom: 0px;
+}
+footer .padding-text-gigames {
+  padding-inline-end: 60px;
+}
 footer .padding-custom {
-  padding-block: 30px;
-  padding-inline: 100px;
+  padding-block: 20px;
+  padding-inline: 5%;
 }
 footer .logo-footer {
   font-family: Rowdies;
-  font-size: 24px;
+  font-weight: bold;
+  font-size: 20px;
   color: white;
 }
 footer .subtitulo-footer {
@@ -99,79 +163,155 @@ footer .subrayado {
   text-decoration: underline;
 }
 
-.index .luces .lucesTop {
-  position: absolute;
-  top: 20%;
-}
-.index .luces .lucesTop img {
-  width: 100%;
-  z-index: -1;
-}
-.index .luces .lucesBottom {
-  position: absolute;
-  top: 20vh;
-}
-.index .luces .lucesBottom img {
-  width: 100%;
-  z-index: -1;
-}
-.index .luces .lucesBottom img {
-  transform: scaleX(-1);
-}
-.index main {
-  padding-top: 40px;
-  background: linear-gradient(0deg, rgb(33, 37, 41) 0%, rgb(27, 25, 40) 50%, rgb(33, 37, 41) 100%);
-}
-.index main .carousel-slide-custom {
-  border-radius: 20px;
-}
-.index main .carousel-slide-custom h2, .index main .carousel-slide-custom p {
-  text-shadow: 2px 2px 1px black;
-}
-.index main .border-white {
-  box-shadow: 0px 0px 20px white;
-}
-.index main .border-red {
-  box-shadow: 0px 0px 20px red;
-}
-.index main .border-orange {
-  box-shadow: 0px 0px 20px orange;
-}
-.index main .border-yellow {
-  box-shadow: 0px 0px 20px yellow;
-}
-.index main .border-green {
-  box-shadow: 0px 0px 20px green;
-}
-.index main .border-cyan {
-  box-shadow: 0px 0px 20px cyan;
-}
-.index main .border-blue {
-  box-shadow: 0px 0px 20px blue;
-}
-.index main .border-purple {
-  box-shadow: 0px 0px 20px purple;
-}
-.index main .tachado {
-  text-decoration: line-through;
-}
-.index main .section2 {
-  margin-top: 80px;
+.game-container {
+  width: 14rem;
+  text-align: center;
+  border: 2px solid black;
   color: white;
-}
-.index main .section2 p {
-  margin: 80px;
-  text-align: justify;
-}
-.index main .section2 .input-group-custom {
-  box-shadow: 0px 5px 5px black;
+  background-color: rgba(0, 0, 0, 0.5);
   transition: all 0.25s;
 }
-.index main .section2 .input-group-custom .form-control {
-  box-shadow: none;
-}
-.index main .section2 .input-group-custom:hover {
+.game-container:hover {
   transform: scale(1.05);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 0px 5px white;
+  cursor: pointer;
+}
+.game-container:hover .carrito-game {
+  display: block;
+}
+
+.card-title-custom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  min-height: 65px;
+}
+
+.card-price-custom {
+  padding: 4px;
+}
+
+.title, .price {
+  font-family: Montserrat;
+  font-size: 1em;
+  margin: 0;
+}
+
+.carrito-game {
+  display: none;
+  position: absolute;
+  bottom: 45px;
+  right: 10px;
+}
+.carrito-game img {
+  width: 32px;
+  border: 1px solid white;
+  border-radius: 30px;
+  background-color: white;
+  transition: all 0.25s;
+}
+.carrito-game img:hover {
+  box-shadow: 0px 0px 5px white;
+  transform: scale(1.1);
+}
+
+.carousel-width {
+  width: 75vw;
+  z-index: 2;
+}
+
+.carousel-slide-custom {
+  border-radius: 10px;
+}
+.carousel-slide-custom .carousel-caption {
+  max-width: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  left: 0;
+}
+.carousel-slide-custom h2 {
+  font-size: 1.5rem;
+}
+.carousel-slide-custom p {
+  font-size: 1em;
+}
+
+.border-white {
+  box-shadow: 0px 0px 20px white;
+}
+
+.border-red {
+  box-shadow: 0px 0px 20px red;
+}
+
+.border-orange {
+  box-shadow: 0px 0px 20px orange;
+}
+
+.border-yellow {
+  box-shadow: 0px 0px 20px yellow;
+}
+
+.border-green {
+  box-shadow: 0px 0px 20px green;
+}
+
+.border-cyan {
+  box-shadow: 0px 0px 20px cyan;
+}
+
+.border-blue {
+  box-shadow: 0px 0px 20px blue;
+}
+
+.border-purple {
+  box-shadow: 0px 0px 20px purple;
+}
+
+.margin-custom {
+  margin-inline: 25%;
+}
+
+@media (max-width: 1224px) {
+  .title {
+    font-size: 0.7em;
+  }
+  .price {
+    font-size: 0.7em;
+  }
+}
+@media (max-width: 991px) {
+  footer .padding-between {
+    padding-bottom: 2px;
+  }
+  footer .padding-between-divs {
+    display: flex;
+    padding-bottom: 30px;
+  }
+  footer .padding-custom-newsletter {
+    padding-block: 0px 20px;
+  }
+}
+@media (max-width: 991px) {
+  .title {
+    font-size: 1em;
+  }
+  .price {
+    font-size: 1em;
+  }
+}
+@media (max-width: 768px) {
+  nav .custom-logo h1 {
+    font-size: 3em;
+  }
+  .carousel-width {
+    width: 90%;
+  }
+  .section-input {
+    width: 80%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,5 +1,5 @@
 nav {
-    border-bottom: 1px solid gray;
+    //border-bottom: 1px solid gray;
 
     li {
         font-family: Montserrat;
@@ -13,8 +13,11 @@ nav {
         }
 
         h1 {
+            margin: 0;
             font-family: Rowdies;
             font-size: 64px;
+            border-bottom: 2px solid white;
+            border-radius: 8px;
             color: white;
         }
     }

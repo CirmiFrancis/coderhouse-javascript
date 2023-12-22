@@ -4,14 +4,24 @@ footer {
         margin: 0;
     }
 
+    // Hay que modificar...
+    .padding-between-content {
+        padding-bottom: 0px;
+    }
+
+    .padding-text-gigames {
+        padding-inline-end: 60px;
+    }
+
     .padding-custom {
-        padding-block: 30px;
-        padding-inline: 100px;
+        padding-block: 20px;
+        padding-inline: 5%;
     }
 
     .logo-footer {
         font-family: Rowdies;
-        font-size: 24px;
+        font-weight: bold;
+        font-size: 20px;
         color: white;
     }
 
