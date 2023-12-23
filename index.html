@@ -1,476 +1,86 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="es">
 
-  <head>
-    <!-- Meta -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <!-- Default Config -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Title -->
-    <title>GiGames</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <!-- Animate On Scroll CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- CSS -->
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>JavaScript | Proyecto Final</title>
+    <!-- Custom Style CSS -->
+    <link rel="stylesheet" href="./style.css">
     <!-- Icon -->
-    <link rel="icon" href="./assets/media/img/icons/g.png" type="image/x-icon">
-  </head>
+    <link rel="icon" href="./media/icon.png" type="image/x-icon">
+</head>
 
-  <body class="index d-flex flex-column">
-    
-    <!-- NAVBAR -->
-    <nav class="d-flex justify-content-center sticky-top bg-dark">
-      <a class="px-5 d-flex align-items-center custom-logo" href="./index.html" data-aos="zoom-in" data-aos-duration="1000"> 
-        <h1>GiGames</h1> 
-      </a>
-      
-      <section class="carrito d-flex align-items-center" data-aos="fade-in" data-aos-duration="1500">
-        <div class="dropdown">
-          <a id="listaCarrito" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="./assets/media/img/icons/cart.png" alt="Ícono de Carrito de Compras">
-          </a>
-          <ul class="dropdown-menu mt-3">
-            <li><a class="dropdown-item text-center" href="#">El carrito está vacío</a></li>
-          </ul>
-        </div>
-      </section>
-    </nav>
+<body>
 
-    <!-- LUCES (detrás del carousel) -->
-    <section class="luces">
-      <div class="lucesTop" data-aos="fade-down" data-aos-duration="2000">
-        <img src="./assets/media/img/luces.png" alt="Imagen de luces de colores puestas de fondo, en la parte superior">
-      </div>
-      <div class="lucesBottom" data-aos="fade-up" data-aos-duration="2000">
-        <img src="./assets/media/img/luces.png" alt="Imagen de luces de colores puestas de fondo, en la parte inferior">
-      </div>
-    </section>
-
-    <!-- MAIN -->
-    <main class="container-fluid d-flex flex-column align-items-center main-custom flex-grow-1">
-
-       <!-- CAROUSEL -->
-      <section class="row container-fluid d-flex justify-content-center carousel-width" data-aos="flip-up" data-aos-duration="1000">
-        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-
-          <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
-          </div>
-
-          <div class="carousel-inner carousel-slide-custom border-white" id="carousel-border-color">
-            <div class="carousel-item active">
-              <img src="./assets/media/img/juegos/carousel/bg3.webp" class="d-block w-100" alt="Imagen del videojuego Baldur's Gate 3">
-              <div class="carousel-caption d-none d-md-block">
-                
-                <div class="margin-custom">
-                  <h2>Baldur's Gate 3</h2>
-                  <p> <span class="tachado">$59.99</span> $53.99 </p>
-                </div>
-
-              </div>
-            </div>
-
-            <div class="carousel-item carousel-slide-custom">
-              <img src="./assets/media/img/juegos/carousel/aw2.webp" class="d-block w-100" alt="Imagen del videojuego Alan Wake 2">
-              <div class="carousel-caption d-none d-md-block">
-
-                <div class="margin-custom">
-                  <h2>Alan Wake 2</h2>
-                  <p> <span class="tachado">$42.99</span> $34.39 </p>
-                </div>
-                
-              </div>
-            </div>
-
-            <div class="carousel-item carousel-slide-custom">
-              <img src="./assets/media/img/juegos/carousel/re4.webp" class="d-block w-100" alt="Imagen del videojuego Resident Evil 4, el remake lanzado en 2023">
-              <div class="carousel-caption d-none d-md-block">
-
-                <div class="margin-custom">
-                  <h2>Resident Evil 4</h2>
-                  <p> <span class="tachado">$59.99</span> $29.99 </p> 
-                </div>
-
-              </div>
-            </div>
-
-            <div class="carousel-item carousel-slide-custom">
-              <img src="./assets/media/img/juegos/carousel/gtaV.webp" class="d-block w-100" alt="Imagen del videojuego Grand Theft Auto 5">
-              <div class="carousel-caption d-none d-md-block">
-
-                <div class="margin-custom">
-                  <h2>Grand Theft Auto V</h2>
-                  <p> <span class="tachado">$39.99</span> $19.99 </p> 
-                </div>
-                
-              </div>
-            </div>
-            
-            <div class="carousel-item carousel-slide-custom">
-              <img src="./assets/media/img/juegos/carousel/gow.webp" class="d-block w-100" alt="Imagen del videojuego God of War, la secuela lanzada en 2018">
-              <div class="carousel-caption d-none d-md-block">
-
-                <div class="margin-custom">
-                  <h2>God of War (2018)</h2>
-                  <p> <span class="tachado">$49.99</span> $24.99 </p> 
-                </div>
-                
-              </div>
-            </div>
-          </div>
-          
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-
-        </div>
-      </section>
-      
-       <!-- BUSCADOR -->
-      <section class="align-items-center" data-aos="fade-in" data-aos-duration="1000">
-
-        <div class="section-input">
-          <input id="buscarJuego" type="text" class="form-control" placeholder="Ingresa el nombre de un juego..." aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+    <main>
+        <!-- Título & Descripción -->
+        <div class="section1" id="sectionTop">
+            <h1> <a href="./index.html"> TIENDA-DE-VIDEOJUEGOS </a> </h1>
+            <p>Puedes ver el catálogo completo de videojuegos, así también como buscar/agregar/eliminar un videojuego.</p>
         </div>
 
-      </section>
-
-      <!-- JUEGOS -->
-      <div class="container-fluid d-flex flex-column flex-wrap p-5" data-aos="fade-up" data-aos-duration="2000">
-        <div class="row">
-          
-            <div id="aw2" class="col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center p-3" data-aos="flip-right" data-aos-duration="1500">
-              <div class="card game-container">
-                  <div class="card-title-custom">
-                      <h4 class="text-center title mb-0">Alan Wake 2</h4>
-                  </div>
-                  <img src="./assets/media/img/juegos/store/aw2.webp" class="border border-dark" alt="Imagen del videojuego de Baldur's Gate 3">
-                  <div class="card-price-custom">
-                    <p class="price"> <span class="tachado">$42.99</span> $34.39 </p>
-                  </div>
-                  <span id="agregarCarrito" class="carrito-game"> <img src="./assets/media/img/icons/cart.png" alt="Ícono de carrito de compra"> </span>         
-              </div>
+        <!-- Botones y Operaciones (Mostrar/Buscar/Agregar/Eliminar un videojuego.) -->
+        <div class="section2">
+            <div class="section2-botones">
+                <button type="submit" id="mostrarJuegos">MOSTRAR_JUEGOS</button>
+                <button type="submit" id="buscarJuego">BUSCAR_JUEGO</button>
+                <button type="submit" id="agregarJuego">AGREGAR_JUEGO</button>
+                <button type="submit" id="eliminarJuego">ELIMINAR_JUEGO</button>
             </div>
 
-            <div id="bg3" class="col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center p-3" data-aos="flip-right" data-aos-duration="1500">
-              <div class="card game-container">
-                  <div class="card-title-custom">
-                      <h4 class="text-center title mb-0">Baldur's Gate 3</h4>
-                  </div>
-                  <img src="./assets/media/img/juegos/store/bg3.webp" class="border border-dark" alt="Imagen del videojuego de Baldur's Gate 3">
-                  <div class="card-price-custom">
-                    <p class="price"> <span class="tachado">$59.99</span> $53.99 </p>
-                  </div>
-                  <span id="agregarCarrito" class="carrito-game"> <img src="./assets/media/img/icons/cart.png" alt="Ícono de carrito de compra"> </span>
-              </div>
+            <div class="section2-funciones">
+                <!-- En esta parte se agregan elementos a través de JavaScript -->
             </div>
-
-            <div id="ce" class="col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center p-3" data-aos="flip-right" data-aos-duration="1500">
-              <div class="card game-container">
-                  <div class="card-title-custom">
-                      <h4 class="text-center title mb-0">Celeste</h4>
-                  </div>
-                  <img src="./assets/media/img/juegos/store/ce.webp" class="border border-dark" alt="Imagen del videojuego de Baldur's Gate 3">
-                  <div class="card-price-custom">
-                    <p class="price"> <span class="tachado">$4.99</span> $19.99 </p>
-                  </div> 
-                  <span id="agregarCarrito" class="carrito-game"> <img src="./assets/media/img/icons/cart.png" alt="Ícono de carrito de compra"> </span>           
-              </div>
-            </div>
-
-            <div id="cp2077" class="col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center p-3" data-aos="flip-right" data-aos-duration="1500">
-              <div class="card game-container">
-                  <div class="card-title-custom">
-                      <h4 class="text-center title mb-0">Cyberpunk 2077</h4>
-                  </div>
-                  <img src="./assets/media/img/juegos/store/cp2077.webp" class="border border-dark" alt="Imagen del videojuego de Baldur's Gate 3">
-                  <div class="card-price-custom">
-                    <p class="price"> <span class="tachado">$59.99</span> $29.99 </p>
-                  </div>
-                  <span id="agregarCarrito" class="carrito-game"> <img src="./assets/media/img/icons/cart.png" alt="Ícono de carrito de compra"> </span>            
-              </div>
-            </div>
-
-            <div id="ea24" class="col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center p-3" data-aos="flip-right" data-aos-duration="1500">
-              <div class="card game-container">
-                  <div class="card-title-custom">
-                      <h4 class="text-center title mb-0">EA Sports FC 24</h4>
-                  </div>
-                  <img src="./assets/media/img/juegos/store/ea24.webp" class="border border-dark" alt="Imagen del videojuego de Baldur's Gate 3">
-                  <div class="card-price-custom">
-                    <p class="price"> <span class="tachado">$69.99</span> $27.99 </p>
-                  </div>
-                  <span id="agregarCarrito" class="carrito-game"> <img src="./assets/media/img/icons/cart.png" alt="Ícono de carrito de compra"> </span>            
-              </div>
-            </div>
-
-            <div id="er" class="col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center p-3" data-aos="flip-right" data-aos-duration="1500">
-              <div class="card game-container">
-                  <div class="card-title-custom">
-                      <h4 class="text-center title mb-0">Elden Ring</h4>
-                  </div>
-                  <img src="./assets/media/img/juegos/store/er.webp" class="border border-dark" alt="Imagen del videojuego de Baldur's Gate 3">
-                  <div class="card-price-custom">
-                    <p class="price"> <span class="tachado">$59.99</span> $35.99 </p>
-                  </div>
-                  <span id="agregarCarrito" class="carrito-game"> <img src="./assets/media/img/icons/cart.png" alt="Ícono de carrito de compra"> </span>            
-              </div>
-            </div>
-
-            <div id="ff7r" class="col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center p-3" data-aos="flip-right" data-aos-duration="1500">
-              <div class="card game-container">
-                  <div class="card-title-custom">
-                      <h4 class="text-center title mb-0">Final Fantasy 7 Remake</h4>
-                  </div>
-                  <img src="./assets/media/img/juegos/store/ff7r.webp" class="border border-dark" alt="Imagen del videojuego de Baldur's Gate 3">
-                  <div class="card-price-custom">
-                    <p class="price"> <span class="tachado">$69.99</span> $34.99 </p>
-                  </div>
-                  <span id="agregarCarrito" class="carrito-game"> <img src="./assets/media/img/icons/cart.png" alt="Ícono de carrito de compra"> </span>            
-              </div>
-            </div>
-
-            <div id="fh5" class="col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center p-3" data-aos="flip-right" data-aos-duration="1500">
-              <div class="card game-container">
-                  <div class="card-title-custom">
-                      <h4 class="text-center title mb-0">Forza Horizon 5</h4>
-                  </div>
-                  <img src="./assets/media/img/juegos/store/fh5.webp" class="border border-dark" alt="Imagen del videojuego de Baldur's Gate 3">
-                  <div class="card-price-custom">
-                    <p class="price"> <span class="tachado">$59.99</span> $29.99 </p>
-                  </div>
-                  <span id="agregarCarrito" class="carrito-game"> <img src="./assets/media/img/icons/cart.png" alt="Ícono de carrito de compra"> </span>            
-              </div>
-            </div>
-
-            <div id="gow" class="col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center p-3" data-aos="flip-right" data-aos-duration="1500">
-              <div class="card game-container">
-                  <div class="card-title-custom">
-                      <h4 class="text-center title mb-0">God of War (2018)</h4>
-                  </div>
-                  <img src="./assets/media/img/juegos/store/gow.webp" class="border border-dark" alt="Imagen del videojuego de Baldur's Gate 3">
-                  <div class="card-price-custom">
-                    <p class="price"> <span class="tachado">$49.99</span> $24.99 </p>
-                  </div>
-                  <span id="agregarCarrito" class="carrito-game"> <img src="./assets/media/img/icons/cart.png" alt="Ícono de carrito de compra"> </span>            
-              </div>
-            </div>
-
-            <div id="gta5" class="col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center p-3" data-aos="flip-right" data-aos-duration="1500">
-              <div class="card game-container">
-                  <div class="card-title-custom">
-                      <h4 class="text-center title mb-0">Grand Theft Auto V</h4>
-                  </div>
-                  <img src="./assets/media/img/juegos/store/gta5.webp" class="border border-dark" alt="Imagen del videojuego de Baldur's Gate 3">
-                  <div class="card-price-custom">
-                    <p class="price"> <span class="tachado">$39.99</span> $19.99 </p>
-                  </div>
-                  <span id="agregarCarrito" class="carrito-game"> <img src="./assets/media/img/icons/cart.png" alt="Ícono de carrito de compra"> </span>            
-              </div>
-            </div>
-
-            <div id="hk" class="col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center p-3" data-aos="flip-right" data-aos-duration="1500">
-              <div class="card game-container">
-                  <div class="card-title-custom">
-                      <h4 class="text-center title mb-0">Hollow Knight</h4>
-                  </div>
-                  <img src="./assets/media/img/juegos/store/hk.webp" class="border border-dark" alt="Imagen del videojuego de Baldur's Gate 3">
-                  <div class="card-price-custom">
-                    <p class="price"> <span class="tachado">$14.99</span> $7.49 </p>
-                  </div>
-                  <span id="agregarCarrito" class="carrito-game"> <img src="./assets/media/img/icons/cart.png" alt="Ícono de carrito de compra"> </span>            
-              </div>
-            </div>
-
-            <div id="mk1" class="col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center p-3" data-aos="flip-right" data-aos-duration="1500">
-              <div class="card game-container">
-                  <div class="card-title-custom">
-                      <h4 class="text-center title mb-0">Mortal Kombat 1</h4>
-                  </div>
-                  <img src="./assets/media/img/juegos/store/mk1.webp" class="border border-dark" alt="Imagen del videojuego de Baldur's Gate 3">
-                  <div class="card-price-custom">
-                    <p class="price"> <span class="tachado">$69.99</span> $34.99 </p>
-                  </div>
-                  <span id="agregarCarrito" class="carrito-game"> <img src="./assets/media/img/icons/cart.png" alt="Ícono de carrito de compra"> </span>            
-              </div>
-            </div>
-
-            <div id="niera" class="col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center p-3" data-aos="flip-right" data-aos-duration="1500">
-              <div class="card game-container">
-                  <div class="card-title-custom">
-                      <h4 class="text-center title mb-0">Nier: Automata</h4>
-                  </div>
-                  <img src="./assets/media/img/juegos/store/niera.webp" class="border border-dark" alt="Imagen del videojuego de Baldur's Gate 3">
-                  <div class="card-price-custom">
-                    <p class="price"> <span class="tachado">$39.99</span> $15.99 </p>
-                  </div>
-                  <span id="agregarCarrito" class="carrito-game"> <img src="./assets/media/img/icons/cart.png" alt="Ícono de carrito de compra"> </span>            
-              </div>
-            </div>
-
-            <div id="phasmo" class="col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center p-3" data-aos="flip-right" data-aos-duration="1500">
-              <div class="card game-container">
-                  <div class="card-title-custom">
-                      <h4 class="text-center title mb-0">Phasmophobia</h4>
-                  </div>
-                  <img src="./assets/media/img/juegos/store/phasmo.webp" class="border border-dark" alt="Imagen del videojuego de Baldur's Gate 3">
-                  <div class="card-price-custom">
-                    <p class="price"> <span class="tachado">$14.99</span> $11.99 </p>
-                  </div>
-                  <span id="agregarCarrito" class="carrito-game"> <img src="./assets/media/img/icons/cart.png" alt="Ícono de carrito de compra"> </span>            
-              </div>
-            </div>
-
-            <div id="rdr2" class="col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center p-3" data-aos="flip-right" data-aos-duration="1500">
-              <div class="card game-container">
-                  <div class="card-title-custom">
-                      <h4 class="text-center title mb-0">Red Dead Redemption 2</h4>
-                  </div>
-                  <img src="./assets/media/img/juegos/store/rdr2.webp" class="border border-dark" alt="Imagen del videojuego de Baldur's Gate 3">
-                  <div class="card-price-custom">
-                    <p class="price"> <span class="tachado">$59.99</span> $19.79 </p>
-                  </div>
-                  <span id="agregarCarrito" class="carrito-game"> <img src="./assets/media/img/icons/cart.png" alt="Ícono de carrito de compra"> </span>            
-              </div>
-            </div>
-
-            <div id="re4" class="col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center p-3" data-aos="flip-right" data-aos-duration="1500">
-              <div class="card game-container">
-                  <div class="card-title-custom">
-                      <h4 class="text-center title mb-0">Resident Evil 4</h4>
-                  </div>
-                  <img src="./assets/media/img/juegos/store/re4.webp" class="border border-dark" alt="Imagen del videojuego de Baldur's Gate 3">
-                  <div class="card-price-custom">
-                    <p class="price"> <span class="tachado">$59.99</span> $29.99 </p>
-                  </div>
-                  <span id="agregarCarrito" class="carrito-game"> <img src="./assets/media/img/icons/cart.png" alt="Ícono de carrito de compra"> </span>            
-              </div>
-            </div>
-
-            <div id="sek" class="col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center p-3" data-aos="flip-right" data-aos-duration="1500">
-              <div class="card game-container">
-                  <div class="card-title-custom">
-                      <h4 class="text-center title mb-0">Sekiro: Shadows Die Twice</h4>
-                  </div>
-                  <img src="./assets/media/img/juegos/store/sek.webp" class="border border-dark" alt="Imagen del videojuego de Baldur's Gate 3">
-                  <div class="card-price-custom">
-                    <p class="price"> <span class="tachado">$59.99</span> $29.99 </p>
-                  </div>
-                  <span id="agregarCarrito" class="carrito-game"> <img src="./assets/media/img/icons/cart.png" alt="Ícono de carrito de compra"> </span>            
-              </div>
-            </div>
-
-            <div id="sf6" class="col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center p-3" data-aos="flip-right" data-aos-duration="1500">
-              <div class="card game-container">
-                  <div class="card-title-custom">
-                      <h4 class="text-center title mb-0">Street Fighter 6</h4>
-                  </div>
-                  <img src="./assets/media/img/juegos/store/fh5.webp" class="border border-dark" alt="Imagen del videojuego de Baldur's Gate 3">
-                  <div class="card-price-custom">
-                    <p class="price"> <span class="tachado">$59.99</span> $39.59 </p>
-                  </div> 
-                  <span id="agregarCarrito" class="carrito-game"> <img src="./assets/media/img/icons/cart.png" alt="Ícono de carrito de compra"> </span>           
-              </div>
-            </div>
-
-            <div id="spi" class="col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center p-3" data-aos="flip-right" data-aos-duration="1500">
-              <div class="card game-container">
-                  <div class="card-title-custom">
-                      <h4 class="text-center title mb-0">Spider-Man</h4>
-                  </div>
-                  <img src="./assets/media/img/juegos/store/spi.webp" class="border border-dark" alt="Imagen del videojuego de Baldur's Gate 3">
-                  <div class="card-price-custom">
-                    <p class="price"> <span class="tachado">$59.99</span> $35.99 </p>
-                  </div>
-                  <span id="agregarCarrito" class="carrito-game"> <img src="./assets/media/img/icons/cart.png" alt="Ícono de carrito de compra"> </span>            
-              </div>
-            </div>
-
-            <div id="terr" class="col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center p-3" data-aos="flip-right" data-aos-duration="1500">
-              <div class="card game-container">
-                  <div class="card-title-custom">
-                      <h4 class="text-center title mb-0">Terraria</h4>
-                  </div>
-                  <img src="./assets/media/img/juegos/store/terr.webp" class="border border-dark" alt="Imagen del videojuego de Baldur's Gate 3">
-                  <div class="card-price-custom">
-                    <p class="price"> <span class="tachado">$9.99</span> $4.99 </p>
-                  </div>
-                  <span id="agregarCarrito" class="carrito-game"> <img src="./assets/media/img/icons/cart.png" alt="Ícono de carrito de compra"> </span>            
-              </div>
-            </div>
-
-          </div>
         </div>
-      </div>
+
+        <!-- Secciones Inferiores Esquinadas -->
+        <div class="audio-container">
+            <audio loop id="reproductor">
+                <source src="./media/bg-ost.mp3" type="audio/mp3">
+                Tu navegador no soporta la etiqueta de audio.
+            </audio>
+            <img src="./media/soundOff-icon.png" alt="Ícono para alternar el sonido." id="imagenBoton">
+        </div>
+
+        <div class="weather-container">
+            <div class="weather-content">
+                <h2>API CLIMA</h2>
+                <div class="result">
+                    <!-- Acá irían las características del clima: Nombre de la ciudad, imagen del clima, temperatura en centígrados -->
+                </div>
+                <form action="" method="POST" class="get-weather">
+                    <select name="" id="country">
+                        <option disabled selected value="">Elige un país</option>
+                        <option value="AR">Argentina</option>
+                        <option value="CO">Colombia</option>
+                        <option value="CR">Costa Rica</option>
+                        <option value="ES">España</option>
+                        <option value="US">Estados Unidos</option>
+                        <option value="MX">México</option>
+                        <option value="PE">Perú</option>
+                    </select>
+                    <br>
+                    <input type="text" name="city" id="city" placeholder="Escribe una ciudad...">
+                    <br><br>
+                    <input class="btnWeather" type="submit" name="" id="" value="Obtener Clima">
+                </form>
+            </div>
+        </div>
 
     </main>
 
-    <!-- FOOTER -->
-    <footer class="container-fluid d-flex flex-column align-items-center text-light bg-dark">
-      <hr>
-
-      <!-- PRIMERA PARTE -->
-      <div class="container-fluid d-flex flex-wrap px-5">
-        <section class="container-fluid row d-flex padding-custom flex-media py-5">
-
-          <div class="row-12 col-lg-6 col-xl-6 d-flex flex-column padding-between-divs">
-            <p class="logo-footer padding-between-content">GiGames</p>
-            
-            <p class="padding-text-gigames">GiGames es una tienda en línea de videojuegos para PC ubicada en Buenos Aires, Argentina</p>
-          </div>
-  
-          <div class="row-12 col-lg-3 col-xl-3 d-flex flex-column padding-between-divs">
-            <p class="subtitulo-footer padding-between-content">Contáctanos</p>
-            
-            <p>+54 11 1234-5678</p>
-            <p>support@gigames.com</p>
-          </div>
-  
-          <div class="row-12 col-lg-3 col-xl-3 d-flex flex-column padding-between-divs">
-            <p class="subtitulo-footer padding-between-content pb-1">Redes Sociales</p>
-            
-            <div class="redes-sociales d-flex">            
-              <a href="https://www.facebook.com" target="_blank"><img src="./assets/media/img/rrss/facebook.png" alt="Ícono de Facebook"></a>
-              <a href="https://www.twitter.com" target="_blank"><img src="./assets/media/img/rrss/twitter.png" alt="Ícono de Twitter"></a>
-              <a href="https://www.instagram.com" target="_blank"><img src="./assets/media/img/rrss/instagram.png" alt="Ícono de Instagram"></a> 
-              <a href="https://www.youtube.com" target="_blank"><img src="./assets/media/img/rrss/youtube.png" alt="Ícono de Youtube"></a> 
-              <a href="https://www.reddit.com" target="_blank"><img src="./assets/media/img/rrss/reddit.png" alt="Ícono de Reddit"></a> 
-            </div>
-          </div>
-          
-        </section>
-      </div>
-
-      <!-- SEGUNDA PARTE -->
-      <div class="copyright pb-3 px-5 w-100">
-        Copyright &COPY; 2023 GiGames
-        <br>
-        El uso de este sitio web implica la aceptación de los <span class="subrayado">Términos y condiciones</span> y <span class="subrayado">Política de privacidad</span>. Todos los derechos de autor, marcas comerciales y marcas de servicio pertenecen a sus correspondientes propietarios.
-      </div>
-    </footer>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <!-- Snow -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/JQuery-Snowfall/1.7.4/snowfall.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Snowstorm/20131208/snowstorm-min.js"></script>
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- Animate On Scroll JS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init();</script>
     <!-- Local JS -->
-    <script src="./assets/js/script.js"></script>
+    <script src="./script.js"></script>
 
-  </body>
+</body>
+
 </html>

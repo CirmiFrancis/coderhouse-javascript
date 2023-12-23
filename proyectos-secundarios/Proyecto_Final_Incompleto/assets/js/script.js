@@ -1,3 +1,18 @@
+/*
+Lista de Cosas a hacer:
+-Hacer funcionar el buscador
+-Hacer funcionar el hacer click en un juego y que se agregue al carrito y al localStorage
+-Hacer funcionar el poder ver el carrito de compras con el boton superior derecho
+-Asegurarse de que solo se pueda agregar el mismo juego una sola vez
+-Botones de limpiar juegos y comprar juegos en el carrito
+-Mostrar lista de juegos agregados
+-Mostrar precio total
+-Consumir API de juegos o clima
+
+Opcional:
+-Filtrar por precios
+*/
+
 // ==================================== CAROUSEL COLORS ====================================
 let slidesBorderColor = document.getElementById('carousel-border-color');
 
