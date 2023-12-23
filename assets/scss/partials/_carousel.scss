@@ -3,6 +3,20 @@
     z-index: 2;
 }
 
+.carousel-indicators {
+
+    button {
+        width: 1.5vw !important;
+        height: 0.5vh !important;
+    }
+
+    .carousel-control-next-icon, .carousel-control-prev-icon {
+        width: 3vw;
+        height: 3vw;
+        color: red;
+    }
+}
+
 .carousel-slide-custom {
     border-radius: 10px;
 

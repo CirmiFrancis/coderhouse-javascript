@@ -74,7 +74,7 @@ nav .carrito img:hover {
 }
 .index .luces .lucesTop {
   position: absolute;
-  top: 20%;
+  top: 150px;
 }
 .index .luces .lucesTop img {
   width: 100%;
@@ -82,7 +82,7 @@ nav .carrito img:hover {
 }
 .index .luces .lucesBottom {
   position: absolute;
-  top: 20%;
+  top: 150px;
 }
 .index .luces .lucesBottom img {
   width: 100%;
@@ -114,15 +114,30 @@ nav .carrito img:hover {
 }
 .index main .section-input {
   margin-top: 70px;
-  width: 60%;
+  width: 80vw;
   color: white;
-}
-.index main .section-input .input-group-custom {
   box-shadow: 0px 5px 5px black;
   transition: all 0.25s;
 }
-.index main .section-input .input-group-custom:hover {
+.index main .section-input:hover {
   transform: scale(1.05);
+}
+.index .btnTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px;
+  font-size: 20px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid white;
+  border-radius: 10px;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+.index .btnTop:hover {
+  transform: scale(1.1);
+  background-color: rgba(130, 130, 130, 0.5);
 }
 
 footer p {
@@ -158,6 +173,7 @@ footer .redes-sociales img {
 }
 footer .copyright {
   font-size: 12px;
+  text-align: center;
 }
 footer .subrayado {
   text-decoration: underline;
@@ -220,6 +236,16 @@ footer .subrayado {
 .carousel-width {
   width: 75vw;
   z-index: 2;
+}
+
+.carousel-indicators button {
+  width: 1.5vw !important;
+  height: 0.5vh !important;
+}
+.carousel-indicators .carousel-control-next-icon, .carousel-indicators .carousel-control-prev-icon {
+  width: 3vw;
+  height: 3vw;
+  color: red;
 }
 
 .carousel-slide-custom {
@@ -295,6 +321,9 @@ footer .subrayado {
   }
 }
 @media (max-width: 991px) {
+  .carousel-width {
+    width: 100%;
+  }
   .title {
     font-size: 1em;
   }
@@ -306,11 +335,21 @@ footer .subrayado {
   nav .custom-logo h1 {
     font-size: 3em;
   }
-  .carousel-width {
-    width: 90%;
+  main .carousel-control-next-icon, main .carousel-control-prev-icon {
+    width: 3vw;
+    height: 3vw;
+    border-color: black;
   }
-  .section-input {
+  main .section-input {
     width: 80%;
+  }
+  footer .copyright {
+    font-size: 10px;
+  }
+}
+@media (max-width: 425px) {
+  footer .padding-text-gigames {
+    padding-inline-end: 0px;
   }
 }
 

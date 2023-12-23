@@ -12,9 +12,9 @@
         .padding-between {
             padding-bottom: 2px;
         }
+
         .padding-between-divs {
             display: flex;
-            
             padding-bottom: 30px;
             
         }
@@ -25,25 +25,43 @@
 }
 
 @media (max-width: 991px){
+    .carousel-width {
+        width: 100%;
+    }
+
     .title {
         font-size: 1em;
     }
+
     .price {
         font-size: 1em;
     }
 }
 
 @media (max-width: 768px){
-
     nav .custom-logo h1 {
         font-size: 3em;
     }
 
-    .carousel-width {
-        width: 90%;
+    main {
+        .carousel-control-next-icon, .carousel-control-prev-icon {
+            width: 3vw;
+            height: 3vw;
+            border-color: black;
+        }
+    
+        .section-input {
+            width: 80%;
+        }
     }
 
-    .section-input {
-        width: 80%;
+    footer .copyright {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 425px){
+    footer .padding-text-gigames {
+        padding-inline-end: 0px;
     }
 }
