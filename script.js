@@ -490,15 +490,15 @@ document.addEventListener("DOMContentLoaded", function () { // Al
 
 // ==================================== API: CLIMA ====================================
 const result = document.querySelector('.result');
-const form = document.querySelector('.get-weather');
+const form = document.querySelector('.getWeather');
 const nameCountry = document.querySelector('#country');
 const nameCity = document.querySelector('#city');
 
 form.addEventListener('submit', (e) => { // Verificamos que no estén los campos vacíos. Si están completados, llamamos a la función 'callAPI'
   e.preventDefault();
 
-  if (nameCity.value === '' || nameCountry.value === '') {
-    Swal.fire({ // Si está vacío, imprimir este mensaje.
+  if (nameCity.value === '' || nameCountry.value === '') { // Si está vacío, mostramos un sweetalert
+    Swal.fire({ 
       title: "COMPLETAR AMBOS CAMPOS",
       icon: "error",
       showConfirmButton: false,
@@ -510,7 +510,7 @@ form.addEventListener('submit', (e) => { // Verificamos que no estén los campos
   callAPI(nameCity.value, nameCountry.value);
 })
 
-function callAPI(city, country){ // Usando Promesas, obtenemos la data en forma de JSON. Además, en caso de que la ciudad NO se encuentre, imprimimos un mensaje, y SI se encuentra, limpiamos el form para mostrar el nuevo form con el clima del lugar correspondiente.
+function callAPI(city, country){ // Usando Promesas, obtenemos la data en forma de JSON. Además, en caso de que la ciudad NO se encuentre, mostramos un sweetalert, y SI se encuentra, limpiamos el form para mostrar el nuevo form con el clima del lugar correspondiente
   const apiId = '8180a3805aca63026a7b2267233dcc48';
   const url = `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiId}`;
 
@@ -520,7 +520,7 @@ function callAPI(city, country){ // Usando Promesas, obtenemos la data en forma 
       })
       .then(dataJSON => {
           if (dataJSON.cod === '404') {
-            Swal.fire({ // Si está vacío, imprimir este mensaje.
+            Swal.fire({
               title: "CIUDAD NO ENCONTRADA",
               icon: "error",
               showConfirmButton: false,
@@ -528,7 +528,7 @@ function callAPI(city, country){ // Usando Promesas, obtenemos la data en forma 
             });
           } 
           else {
-            result.innerHTML = ''; // Limpiar form
+            result.innerHTML = ''; // Limpia el form
             showWeather(dataJSON);
           }
       })
@@ -537,7 +537,7 @@ function callAPI(city, country){ // Usando Promesas, obtenemos la data en forma 
       })
 }
 
-function showWeather(data){ // Función que
+function showWeather(data){ // Obtiene los datos especificados y los muestra
     const {name, main:{temp}, weather:[arr]} = data;
     const degrees = kelvinToCentigrade(temp);
     const content = document.createElement('div');
@@ -551,7 +551,7 @@ function showWeather(data){ // Función que
     result.appendChild(content);
 }
 
-function kelvinToCentigrade(temp){ // Función para pasar de grados Kelvin a Centigrados
+function kelvinToCentigrade(temp){ // Pasa de grados Kelvin a Centigrados
     return parseInt(temp - 273.15);
 }
 
