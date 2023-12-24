@@ -338,11 +338,11 @@ document.getElementById('imagenBoton').addEventListener('click', function () {
 
   if (reproductor.paused) {
     reproductor.play();
-    imagenBoton.src = "./media/soundOn-icon.png";
+    imagenBoton.src = "./assets/media/soundOn-icon.png";
   }
   else {
     reproductor.pause();
-    imagenBoton.src = "./media/soundOff-icon.png";
+    imagenBoton.src = "./assets/media/soundOff-icon.png";
   }
 });
 
