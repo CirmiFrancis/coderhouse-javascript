@@ -12,7 +12,7 @@ Además, hay 2 funciones secundarias ubicadas en las esquinas inferiores. A la d
 Por último, agregué un par de librerías como lo son: Snowstorm & SweetAlert2.
 
 Para más información, te invito a que visites el sitio web: 
-- GitHub Pages: ... (en progreso)
+- GitHub Pages: https://cirmifrancis.github.io/coderhouse-javascript/
 
 Certificado de aprobación del Curso: ... (en progreso)
 

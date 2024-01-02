@@ -512,7 +512,7 @@ form.addEventListener('submit', (e) => { // Verificamos que no estén los campos
 
 function callAPI(city, country){ // Usando Promesas, obtenemos la data en forma de JSON. Además, en caso de que la ciudad NO se encuentre, mostramos un sweetalert, y SI se encuentra, limpiamos el form para mostrar el nuevo form con el clima del lugar correspondiente
   const apiId = '8180a3805aca63026a7b2267233dcc48';
-  const url = `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiId}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiId}`;
 
   fetch(url)
       .then(data => {
@@ -554,8 +554,5 @@ function showWeather(data){ // Obtiene los datos especificados y los muestra
 function kelvinToCentigrade(temp){ // Pasa de grados Kelvin a Centigrados
     return parseInt(temp - 273.15);
 }
-
-
-
 
 //===========================================================================================================================================
