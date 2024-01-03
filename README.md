@@ -1,11 +1,11 @@
 # Proyecto Final: BIBLIOTECA-DE-VIDEOJUEGOS
 Proyecto realizado para el curso de "JavaScript" de la plataforma Coderhouse.
 
-Realicé una página web interactiva que funciona como simulador de 'Biblioteca de Videojuegos'. En este, encontrarás 4 funciones principales:
-- 'Mostrar Juegos': muestra una lista de juegos.
-- 'Buscar Juego': busca, encuentra y muestra un juego que coincida con el nombre buscado.
-- 'Agregar Juego': permite especificar 'nombre', 'precio', 'plataforma' y 'fecha de salida' del juego para posteriormente agregarlo a la lista.
-- 'Eliminar Juego': elimina un juego en específico que coincida con el nombre buscado.
+Realicé una página web interactiva que funciona como simulador de una 'Biblioteca de Videojuegos'. En esta, encontrarás 4 funciones principales:
+- 'MOSTRAR_JUEGOS': muestra una lista de juegos.
+- 'BUSCAR_JUEGO': busca, encuentra y muestra un juego que coincida con el nombre buscado.
+- 'AGREGAR_JUEGO': permite especificar 'nombre', 'precio', 'plataforma' y 'fecha de salida' del juego para posteriormente agregarlo a la lista.
+- 'ELIMINAR_JUEGO': elimina un juego en específico que coincida con el nombre buscado.
 
 Además, hay 2 funciones secundarias ubicadas en las esquinas inferiores. A la derecha, un botón que permite reproducir/pausar música de fondo; a la izquierda, una interfaz que permite saber el clima según el país y la ciudad, la cual funciona a través de la API OpenWeather.
 
