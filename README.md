@@ -21,4 +21,4 @@ https://cirmifrancis.github.io/coderhouse-javascript/
 ### Aclaración:
 En un principio, la página web iba a ser diferente, tanto visualmente como en cuanto a sus funcionalidades, simulando una 'Tienda de Videojuegos'. Sin embargo, por cuestiones de tiempo, decidí no continuarlo y entregar otro proyecto que cumpla con lo pedido. Aún así, dejo un GIF para mostrar un poco lo que tenía hecho...
 
-![GIF](https://64.media.tumblr.com/784032f205d8ec891a6650ae72524a15/9216f86a169e4689-2b/s1280x1920/58373ef645c553a4f7063e98c9f7bea0ebc3f729.gifv)
+![GIF de GiGames](https://raw.githubusercontent.com/CirmiFrancis/coderhouse-javascript/main/gigames.gif)
