@@ -15,7 +15,8 @@ Por último, agregué un par de librerías: Snowstorm & SweetAlert2.
 https://cirmifrancis.github.io/coderhouse-javascript/
 
 ### Certificado de aprobación del Curso: 
-... (en progreso)
+
+![Imagen del Certificado](https://raw.githubusercontent.com/CirmiFrancis/coderhouse-javascript/main/certificado-js.png)
 
 ### Aclaración:
 En un principio, la página web iba a ser diferente, tanto visualmente como en cuanto a sus funcionalidades, simulando una 'Tienda de Videojuegos'. Sin embargo, por cuestiones de tiempo, decidí no continuarlo y entregar otro proyecto que cumpla con lo pedido. Aún así, dejo un GIF para mostrar un poco lo que tenía hecho...
