@@ -18,7 +18,9 @@ https://cirmifrancis.github.io/coderhouse-javascript/
 
 ![Imagen del Certificado](https://raw.githubusercontent.com/CirmiFrancis/coderhouse-javascript/main/certificado-js.png)
 
-### Aclaración:
-En un principio, la página web iba a ser diferente, tanto visualmente como en cuanto a sus funcionalidades, simulando una 'Tienda de Videojuegos'. Sin embargo, por cuestiones de tiempo, decidí no continuarlo y entregar otro proyecto que cumpla con lo pedido. Aún así, dejo un GIF para mostrar un poco lo que tenía hecho...
-
-![GIF de GiGames](https://raw.githubusercontent.com/CirmiFrancis/coderhouse-javascript/main/gigames.gif)
+> [!NOTE]
+> En un principio, la página web estaba planeada para ser diferente tanto visual como funcionalmente, simulando una 'Tienda de Videojuegos'. Sin embargo, debido a limitaciones de tiempo, decidí no continuarlo y opté por entregar otro proyecto que cumpliera con los requisitos solicitados.
+> 
+> A continuación, dejo un GIF para mostrar un poco lo que tenía hecho de la tienda, la cual llamé 'GiGames':
+>
+> ![GIF de GiGames](https://raw.githubusercontent.com/CirmiFrancis/coderhouse-javascript/main/gigames.gif)
