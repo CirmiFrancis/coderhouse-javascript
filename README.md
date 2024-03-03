@@ -16,7 +16,7 @@ https://cirmifrancis.github.io/coderhouse-javascript/
 
 ### Certificado de aprobación del Curso: 
 
-![Imagen del Certificado](https://raw.githubusercontent.com/CirmiFrancis/coderhouse-javascript/main/certificado-js.png)
+![Imagen del Certificado](https://github.com/CirmiFrancis/coderhouse-javascript/blob/main/certificate.png?raw=true)
 
 > [!NOTE]
 > En un principio, la página web estaba planeada para ser diferente tanto visual como funcionalmente, simulando una 'Tienda de Videojuegos'. Sin embargo, debido a limitaciones de tiempo, decidí no continuarlo y opté por entregar otro proyecto que cumpliera con los requisitos solicitados.
